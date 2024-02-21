@@ -29,6 +29,6 @@
     {"name":"Obj_Projectile","order":1,"path":"objects/Obj_Projectile/Obj_Projectile.yy",},
     {"name":"Sprite8","order":16,"path":"sprites/Sprite8/Sprite8.yy",},
     {"name":"Obj_Zombie","order":2,"path":"objects/Obj_Zombie/Obj_Zombie.yy",},
-    {"name":"Obj_CameraControl","order":4,"path":"objects/Obj_CameraControl/Obj_CameraControl.yy",},
+    {"name":"Obj_Camera","order":4,"path":"objects/Obj_Camera/Obj_Camera.yy",},
   ],
 }

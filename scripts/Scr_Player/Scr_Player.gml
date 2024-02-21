@@ -71,9 +71,3 @@ function DrawPlayer(){
 	draw_sprite_ext(sprite_index, image_index, x, y, facing, image_yscale, 0, c_white, 1);
 	draw_sprite_ext(wepSprite, image_index, x, y, 1, facing, gunAngle, c_white, 1);
 }
-
-function CameraControl(){
-	var halfViewWidth = camera_get_view_width(view_camera[0]) / 2;
-	var halfViewHeight = camera_get_view_height(view_camera[0]) / 2;
-	camera_set_view_pos(view_camera[0], x - halfViewWidth, y - halfViewHeight);
-}
