@@ -13,6 +13,34 @@ function MovePlayer(){
 	if (checkForMovement > 0) {
 		xSpeed = cos(pointing) * moveSpeed;
 		ySpeed = -sin(pointing) * moveSpeed;
+		
+		//move_and_collide(xSpeed, ySpeed, currTileMap);
+		
+		#region
+		// X Collision
+		if place_meeting(x + xSpeed, y, currTileMap)
+		{
+			var _pixelCheck = sign(xSpeed);
+			while !place_meeting(x+_pixelCheck, y, currTileMap)
+			{
+				x += _pixelCheck;
+			}
+	
+			xSpeed = 0;
+		}
+		// Y Collision
+		if place_meeting(x + xSpeed, y + ySpeed, currTileMap)
+		{
+			var _pixelCheck = sign(ySpeed);
+			while !place_meeting(x+xSpeed, y+_pixelCheck, currTileMap)
+			{
+				y += _pixelCheck;
+			}
+	
+			ySpeed = 0;
+		}
+		#endregion
+		
 		hspeed = xSpeed;
 		vspeed = ySpeed;
 	} else {
@@ -21,17 +49,26 @@ function MovePlayer(){
 	}
 }
 
-function FireWeapon(){
+function PlayerWeapon(){
 	var input_fired =  mouse_check_button_pressed(mb_left);
-	UpdateWeapon();
+	var input_swap =  keyboard_check_pressed(vk_space);
 	
-	if (input_fired) { fire_weapon(); }
+	gunAngle = point_direction(x, y, mouse_x, mouse_y);
+	
+	if input_fired { fire_weapon(); }
+	else if (input_swap && wepB > -1) {
+		var temp = wepA;
+		wepA = wepB;
+		wepB = temp;
+		UpdateWeapon(wepA);
+	}
 }
 
 function DrawPlayer(){
-	if horizontalDirection != 0 {facing = horizontalDirection;}
+	facing = sign(cos(gunAngle*pi/180)); // remove sign() part for the funny
 	
 	draw_sprite_ext(sprite_index, image_index, x, y, facing, image_yscale, 0, c_white, 1);
+	draw_sprite_ext(wepSprite, image_index, x, y, 1, facing, gunAngle, c_white, 1);
 }
 
 function CameraControl(){

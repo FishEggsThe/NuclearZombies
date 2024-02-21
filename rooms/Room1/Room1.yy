@@ -11,10 +11,22 @@
   ],
   "isDnd": false,
   "layers": [
-    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
+    {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Tiles_Wall","depth":0,"effectEnabled":true,"effectType":null,"gridX":64,"gridY":64,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":22,"TileCompressedData":[
+-3,-2147483648,-14,1,-8,-2147483648,1,1,-12,-2147483648,1,1,-8,-2147483648,1,1,-12,-2147483648,1,1,-8,-2147483648,
+3,1,-2147483648,-2147483648,-3,1,-2,-2147483648,-3,1,-2,-2147483648,1,1,-8,-2147483648,4,1,-2147483648,-2147483648,1,-6,
+-2147483648,4,1,-2147483648,-2147483648,1,-8,-2147483648,1,1,-12,-2147483648,1,1,-8,-2147483648,1,1,-12,-2147483648,1,1,
+-8,-2147483648,4,1,-2147483648,-2147483648,1,-6,-2147483648,4,1,-2147483648,-2147483648,1,-8,-2147483648,3,1,-2147483648,-2147483648,-3,1,
+-2,-2147483648,-3,1,-2,-2147483648,1,1,-8,-2147483648,1,1,-12,-2147483648,1,1,-8,-2147483648,1,1,-12,-2147483648,
+1,1,-8,-2147483648,-14,1,-5,-2147483648,],"TileDataFormat":1,},"tilesetId":{"name":"TileSetTest2","path":"tilesets/TileSetTest2/TileSetTest2.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2ABAAA2C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"Obj_Player","path":"objects/Obj_Player/Obj_Player.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":640.0,"y":384.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
-    {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Background","animationFPS":30.0,"animationSpeedType":0,"colour":4278214145,"depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"spriteId":{"name":"SPr_TestShotgun","path":"sprites/SPr_TestShotgun/SPr_TestShotgun.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":true,"x":0,"y":0,},
+    {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Tiles_Floor","depth":200,"effectEnabled":true,"effectType":null,"gridX":64,"gridY":64,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":12,"SerialiseWidth":22,"TileCompressedData":[
+-26,-2147483648,-12,2,-10,-2147483648,-12,2,-10,-2147483648,-2,2,-3,0,-2,2,-3,0,-2,2,-10,-2147483648,
+-2,2,1,0,-6,1,3,0,2,2,-10,-2147483648,-3,2,-6,1,-3,2,-10,-2147483648,-3,2,
+-6,1,-3,2,-10,-2147483648,-2,2,1,0,-6,1,3,0,2,2,-10,-2147483648,-2,2,-3,0,
+-2,2,-3,0,-2,2,-10,-2147483648,-12,2,-10,-2147483648,-12,2,-28,-2147483648,],"TileDataFormat":1,},"tilesetId":{"name":"TileSetTest","path":"tilesets/TileSetTest/TileSetTest.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+    {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Background","animationFPS":30.0,"animationSpeedType":0,"colour":4278204928,"depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":true,"x":0,"y":0,},
   ],
   "parent": {
     "name": "Rooms",
