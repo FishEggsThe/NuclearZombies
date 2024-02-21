@@ -6,44 +6,41 @@ function MovePlayer(){
 
 	horizontalDirection = input_right - input_left;
 	verticalDirection = input_down - input_up;
-	var pointing = point_direction(0, 0, horizontalDirection, verticalDirection) * pi/180;
-	draw_pointing = point_direction(0, 0, horizontalDirection, verticalDirection);
+	var moveDirection = point_direction(0, 0, horizontalDirection, verticalDirection);
 
 	var checkForMovement = abs(horizontalDirection) + abs(verticalDirection)
 	if (checkForMovement > 0) {
-		xSpeed = cos(pointing) * moveSpeed;
-		ySpeed = -sin(pointing) * moveSpeed;
+		direction = moveDirection;
+		speed = moveSpeed;
+		//xSpeed = cos(moveDirection) * moveSpeed;
+		//ySpeed = -sin(moveDirection) * moveSpeed;
+		//move_and_collide(hspeed, vspeed, currTileMap);
 		
-		move_and_collide(xSpeed, ySpeed, currTileMap);
-		/*
 		#region
 		// X Collision
-		if place_meeting(x + xSpeed, y, currTileMap)
+		if place_meeting(x + hspeed, y, currTileMap)
 		{
-			var _pixelCheck = sign(xSpeed);
+			var _pixelCheck = sign(hspeed);
 			while !place_meeting(x+_pixelCheck, y, currTileMap)
 			{
 				x += _pixelCheck;
 			}
 	
-			xSpeed = 0;
+			hspeed = 0;
 		}
 		// Y Collision
-		if place_meeting(x + xSpeed, y + ySpeed, currTileMap)
+		if place_meeting(x + hspeed, y + vspeed, currTileMap)
 		{
-			var _pixelCheck = sign(ySpeed);
-			while !place_meeting(x+xSpeed, y+_pixelCheck, currTileMap)
+			var _pixelCheck = sign(vspeed);
+			while !place_meeting(x+hspeed, y+_pixelCheck, currTileMap)
 			{
 				y += _pixelCheck;
 			}
 	
-			ySpeed = 0;
+			vspeed = 0;
 		}
-		
-		hspeed = xSpeed;
-		vspeed = ySpeed;
 		#endregion
-		*/
+		
 		
 	} else {
 		hspeed = 0;
@@ -78,3 +75,33 @@ function CameraControl(){
 	var halfViewHeight = camera_get_view_height(view_camera[0]) / 2;
 	camera_set_view_pos(view_camera[0], x - halfViewWidth, y - halfViewHeight);
 }
+
+		/* if move_and_collide starts being gross use this instead
+		#region
+		// X Collision
+		if place_meeting(x + xSpeed, y, currTileMap)
+		{
+			var _pixelCheck = sign(xSpeed);
+			while !place_meeting(x+_pixelCheck, y, currTileMap)
+			{
+				x += _pixelCheck;
+			}
+	
+			xSpeed = 0;
+		}
+		// Y Collision
+		if place_meeting(x + xSpeed, y + ySpeed, currTileMap)
+		{
+			var _pixelCheck = sign(ySpeed);
+			while !place_meeting(x+xSpeed, y+_pixelCheck, currTileMap)
+			{
+				y += _pixelCheck;
+			}
+	
+			ySpeed = 0;
+		}
+		
+		hspeed = xSpeed;
+		vspeed = ySpeed;
+		#endregion
+		*/
