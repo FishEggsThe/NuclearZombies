@@ -15,14 +15,14 @@ function MovePlayer(){
 		//xSpeed += cos(moveDirection) * moveSpeedInc;
 		//ySpeed += -sin(moveDirection) * moveSpeedInc;
 		
-		CollisionHandler();
+		PlayerCollision();
 	} else {
 		speed -= moveSpeedInc;
 	}
 	speed = clamp(speed, 0, moveSpeedMax);
 }
 
-function CollisionHandler(){
+function PlayerCollision(){
 	var currTileMap = layer_tilemap_get_id("Tiles_Wall");
 	// X Collision
 	if place_meeting(x + hspeed, y, currTileMap)

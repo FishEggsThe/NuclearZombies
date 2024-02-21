@@ -44,6 +44,7 @@
     {"id":{"name":"Spr_TestShotgun","path":"sprites/Spr_TestShotgun/Spr_TestShotgun.yy",},},
     {"id":{"name":"TileSetTest2","path":"tilesets/TileSetTest2/TileSetTest2.yy",},},
     {"id":{"name":"Spr_TestBullet","path":"sprites/Spr_TestBullet/Spr_TestBullet.yy",},},
+    {"id":{"name":"Scr_Zombies","path":"scripts/Scr_Zombies/Scr_Zombies.yy",},},
     {"id":{"name":"Spr_TestPistol","path":"sprites/Spr_TestPistol/Spr_TestPistol.yy",},},
     {"id":{"name":"Scr_Player","path":"scripts/Scr_Player/Scr_Player.yy",},},
     {"id":{"name":"TileSetTest","path":"tilesets/TileSetTest/TileSetTest.yy",},},
