@@ -34,11 +34,14 @@
     "IDEVersion": "2023.11.1.129",
   },
   "resources": [
+    {"id":{"name":"Spr_TestZombie","path":"sprites/Spr_TestZombie/Spr_TestZombie.yy",},},
     {"id":{"name":"Scr_Weapons","path":"scripts/Scr_Weapons/Scr_Weapons.yy",},},
     {"id":{"name":"chives","path":"sprites/chives/chives.yy",},},
     {"id":{"name":"Obj_Player","path":"objects/Obj_Player/Obj_Player.yy",},},
     {"id":{"name":"Spr_Tile","path":"sprites/Spr_Tile/Spr_Tile.yy",},},
+    {"id":{"name":"Obj_Node","path":"objects/Obj_Node/Obj_Node.yy",},},
     {"id":{"name":"Spr_Wall","path":"sprites/Spr_Wall/Spr_Wall.yy",},},
+    {"id":{"name":"Scr_General","path":"scripts/Scr_General/Scr_General.yy",},},
     {"id":{"name":"Spr_TestShotgun","path":"sprites/Spr_TestShotgun/Spr_TestShotgun.yy",},},
     {"id":{"name":"TileSetTest2","path":"tilesets/TileSetTest2/TileSetTest2.yy",},},
     {"id":{"name":"Spr_TestBullet","path":"sprites/Spr_TestBullet/Spr_TestBullet.yy",},},
@@ -46,6 +49,8 @@
     {"id":{"name":"Scr_Player","path":"scripts/Scr_Player/Scr_Player.yy",},},
     {"id":{"name":"TileSetTest","path":"tilesets/TileSetTest/TileSetTest.yy",},},
     {"id":{"name":"Obj_Projectile","path":"objects/Obj_Projectile/Obj_Projectile.yy",},},
+    {"id":{"name":"Sprite8","path":"sprites/Sprite8/Sprite8.yy",},},
+    {"id":{"name":"Obj_Zombie","path":"objects/Obj_Zombie/Obj_Zombie.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "RoomOrderNodes": [

@@ -17,13 +17,18 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings": [
+    {"name":"Spr_TestZombie","order":6,"path":"sprites/Spr_TestZombie/Spr_TestZombie.yy",},
     {"name":"Scr_Weapons","order":1,"path":"scripts/Scr_Weapons/Scr_Weapons.yy",},
     {"name":"Spr_Tile","order":4,"path":"sprites/Spr_Tile/Spr_Tile.yy",},
+    {"name":"Obj_Node","order":3,"path":"objects/Obj_Node/Obj_Node.yy",},
     {"name":"Spr_Wall","order":5,"path":"sprites/Spr_Wall/Spr_Wall.yy",},
+    {"name":"Scr_General","order":2,"path":"scripts/Scr_General/Scr_General.yy",},
     {"name":"Spr_TestShotgun","order":1,"path":"sprites/Spr_TestShotgun/Spr_TestShotgun.yy",},
     {"name":"TileSetTest2","order":1,"path":"tilesets/TileSetTest2/TileSetTest2.yy",},
     {"name":"Spr_TestBullet","order":3,"path":"sprites/Spr_TestBullet/Spr_TestBullet.yy",},
     {"name":"Spr_TestPistol","order":2,"path":"sprites/Spr_TestPistol/Spr_TestPistol.yy",},
     {"name":"Obj_Projectile","order":1,"path":"objects/Obj_Projectile/Obj_Projectile.yy",},
+    {"name":"Sprite8","order":16,"path":"sprites/Sprite8/Sprite8.yy",},
+    {"name":"Obj_Zombie","order":2,"path":"objects/Obj_Zombie/Obj_Zombie.yy",},
   ],
 }

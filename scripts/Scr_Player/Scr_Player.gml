@@ -16,32 +16,7 @@ function MovePlayer(){
 		//ySpeed = -sin(moveDirection) * moveSpeed;
 		//move_and_collide(hspeed, vspeed, currTileMap);
 		
-		#region
-		// X Collision
-		if place_meeting(x + hspeed, y, currTileMap)
-		{
-			var _pixelCheck = sign(hspeed);
-			while !place_meeting(x+_pixelCheck, y, currTileMap)
-			{
-				x += _pixelCheck;
-			}
-	
-			hspeed = 0;
-		}
-		// Y Collision
-		if place_meeting(x + hspeed, y + vspeed, currTileMap)
-		{
-			var _pixelCheck = sign(vspeed);
-			while !place_meeting(x+hspeed, y+_pixelCheck, currTileMap)
-			{
-				y += _pixelCheck;
-			}
-	
-			vspeed = 0;
-		}
-		#endregion
-		
-		
+		CollisionHandler();
 	} else {
 		hspeed = 0;
 		vspeed = 0;
@@ -64,7 +39,7 @@ function PlayerWeapon(){
 }
 
 function DrawPlayer(){
-	facing = sign(cos(gunAngle*pi/180)); // remove sign() part for the funny
+	var facing = sign(cos(gunAngle*pi/180)); // remove sign() part for the funny
 	
 	draw_sprite_ext(sprite_index, image_index, x, y, facing, image_yscale, 0, c_white, 1);
 	draw_sprite_ext(wepSprite, image_index, x, y, 1, facing, gunAngle, c_white, 1);
@@ -75,33 +50,3 @@ function CameraControl(){
 	var halfViewHeight = camera_get_view_height(view_camera[0]) / 2;
 	camera_set_view_pos(view_camera[0], x - halfViewWidth, y - halfViewHeight);
 }
-
-		/* if move_and_collide starts being gross use this instead
-		#region
-		// X Collision
-		if place_meeting(x + xSpeed, y, currTileMap)
-		{
-			var _pixelCheck = sign(xSpeed);
-			while !place_meeting(x+_pixelCheck, y, currTileMap)
-			{
-				x += _pixelCheck;
-			}
-	
-			xSpeed = 0;
-		}
-		// Y Collision
-		if place_meeting(x + xSpeed, y + ySpeed, currTileMap)
-		{
-			var _pixelCheck = sign(ySpeed);
-			while !place_meeting(x+xSpeed, y+_pixelCheck, currTileMap)
-			{
-				y += _pixelCheck;
-			}
-	
-			ySpeed = 0;
-		}
-		
-		hspeed = xSpeed;
-		vspeed = ySpeed;
-		#endregion
-		*/
