@@ -1,4 +1,6 @@
-moveSpeed = 4;
+moveSpeed = 0;
+moveSpeedInc = 0.8;
+moveSpeedMax = 4;
 xSpeed = 0;
 ySpeed = 0;
 horizontalDirection = 1;

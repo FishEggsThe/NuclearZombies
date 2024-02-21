@@ -6,21 +6,48 @@ function MovePlayer(){
 
 	horizontalDirection = input_right - input_left;
 	verticalDirection = input_down - input_up;
-	var moveDirection = point_direction(0, 0, horizontalDirection, verticalDirection);
+	var moveDirection = point_direction(0, 0, horizontalDirection, verticalDirection); //* pi/180;
 
 	var checkForMovement = abs(horizontalDirection) + abs(verticalDirection)
 	if (checkForMovement > 0) {
 		direction = moveDirection;
-		speed = moveSpeed;
-		//xSpeed = cos(moveDirection) * moveSpeed;
-		//ySpeed = -sin(moveDirection) * moveSpeed;
-		//move_and_collide(hspeed, vspeed, currTileMap);
+		speed += moveSpeedInc;
+		//xSpeed += cos(moveDirection) * moveSpeedInc;
+		//ySpeed += -sin(moveDirection) * moveSpeedInc;
 		
 		CollisionHandler();
 	} else {
+		speed -= moveSpeedInc;
+	}
+	speed = clamp(speed, 0, moveSpeedMax);
+}
+
+function CollisionHandler(){
+	var currTileMap = layer_tilemap_get_id("Tiles_Wall");
+	// X Collision
+	if place_meeting(x + hspeed, y, currTileMap)
+	{
+		var _pixelCheck = sign(hspeed);
+		while !place_meeting(x+_pixelCheck, y, currTileMap)
+		{
+			x += _pixelCheck;
+		}
+	
 		hspeed = 0;
+	}
+	// Y Collision
+	if place_meeting(x + hspeed, y + vspeed, currTileMap)
+	{
+		var _pixelCheck = sign(vspeed);
+		while !place_meeting(x+hspeed, y+_pixelCheck, currTileMap)
+		{
+			y += _pixelCheck;
+		}
+	
 		vspeed = 0;
 	}
+	//hspeed = xSpeed;
+	//vspeed = ySpeed;
 }
 
 function PlayerWeapon(){

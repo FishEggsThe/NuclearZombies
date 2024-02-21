@@ -1,3 +1,6 @@
+if place_meeting(x, y, Obj_Player) { speed = 0;}
+else { speed = moveSpeed;}
+
 var goto = point_direction(x, y, Obj_Player.x, Obj_Player.y);
 direction = goto;
 

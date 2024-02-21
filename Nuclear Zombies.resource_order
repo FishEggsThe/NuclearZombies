@@ -22,7 +22,6 @@
     {"name":"Spr_Tile","order":4,"path":"sprites/Spr_Tile/Spr_Tile.yy",},
     {"name":"Obj_Node","order":3,"path":"objects/Obj_Node/Obj_Node.yy",},
     {"name":"Spr_Wall","order":5,"path":"sprites/Spr_Wall/Spr_Wall.yy",},
-    {"name":"Scr_General","order":2,"path":"scripts/Scr_General/Scr_General.yy",},
     {"name":"Spr_TestShotgun","order":1,"path":"sprites/Spr_TestShotgun/Spr_TestShotgun.yy",},
     {"name":"TileSetTest2","order":1,"path":"tilesets/TileSetTest2/TileSetTest2.yy",},
     {"name":"Spr_TestBullet","order":3,"path":"sprites/Spr_TestBullet/Spr_TestBullet.yy",},
@@ -30,5 +29,6 @@
     {"name":"Obj_Projectile","order":1,"path":"objects/Obj_Projectile/Obj_Projectile.yy",},
     {"name":"Sprite8","order":16,"path":"sprites/Sprite8/Sprite8.yy",},
     {"name":"Obj_Zombie","order":2,"path":"objects/Obj_Zombie/Obj_Zombie.yy",},
+    {"name":"Obj_CameraControl","order":4,"path":"objects/Obj_CameraControl/Obj_CameraControl.yy",},
   ],
 }
