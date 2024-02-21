@@ -55,8 +55,10 @@ function PlayerWeapon(){
 	var input_swap =  keyboard_check_pressed(vk_space);
 	
 	gunAngle = point_direction(x, y, mouse_x, mouse_y);
+	if wepPushback > 0 { wepPushback--;}
+	if reload > 0 { reload--;}
 	
-	if input_fired { fire_weapon(); }
+	if(input_fired && reload <= 0) { fire_weapon(); }
 	else if (input_swap && wepB > -1) {
 		var temp = wepA;
 		wepA = wepB;
@@ -69,5 +71,7 @@ function DrawPlayer(){
 	var facing = sign(cos(gunAngle*pi/180)); // remove sign() part for the funny
 	
 	draw_sprite_ext(sprite_index, image_index, x, y, facing, image_yscale, 0, c_white, 1);
-	draw_sprite_ext(wepSprite, image_index, x, y, 1, facing, gunAngle, c_white, 1);
+	var xBack = cos(gunAngle*pi/180) * wepPushback;
+	var yBack = -sin(gunAngle*pi/180) * wepPushback;
+	draw_sprite_ext(wepSprite, image_index, x-xBack, y-yBack, 1, facing, gunAngle, c_white, 1);
 }

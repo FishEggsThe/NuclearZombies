@@ -12,6 +12,16 @@ if instance_exists(Obj_Player) {
 	y = lerp(y, yP, 0.1);
 	var xDistLerp = x - halfViewWidth + xDist;
 	var yDistLerp = y - halfViewHeight + yDist;
-
-	camera_set_view_pos(view_camera[0], xDistLerp, yDistLerp);
+	
+	// Screen shake
+	var xShake = random_range(-shake, shake);
+	var yShake = random_range(-shake, shake);
+	
+	camera_set_view_pos(view_camera[0], xDistLerp + xShake, yDistLerp + yShake);
+	
+	reduce = !reduce;
+	if(reduce){
+		shake -= 1.5;
+		shake = clamp(shake, 0, 999999);
+	}
 }

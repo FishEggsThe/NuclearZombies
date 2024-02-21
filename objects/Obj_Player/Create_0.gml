@@ -10,6 +10,8 @@ wepA = 0;
 wepB = 1;
 wepSprite = Spr_TestPistol;
 pointing = 0;
+wepPushback = 0;
+reload = 0;
 
 fire_weapon = function() {
 	//function
