@@ -14,8 +14,8 @@ function MovePlayer(){
 		xSpeed = cos(pointing) * moveSpeed;
 		ySpeed = -sin(pointing) * moveSpeed;
 		
-		//move_and_collide(xSpeed, ySpeed, currTileMap);
-		
+		move_and_collide(xSpeed, ySpeed, currTileMap);
+		/*
 		#region
 		// X Collision
 		if place_meeting(x + xSpeed, y, currTileMap)
@@ -39,10 +39,12 @@ function MovePlayer(){
 	
 			ySpeed = 0;
 		}
-		#endregion
 		
 		hspeed = xSpeed;
 		vspeed = ySpeed;
+		#endregion
+		*/
+		
 	} else {
 		hspeed = 0;
 		vspeed = 0;
