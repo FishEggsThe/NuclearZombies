@@ -19,6 +19,7 @@ for(var i = 0; i < instance_number(Obj_Node); ++i;)
 
 draw_nodes = function() {
 	draw_sprite(sprite_index, image_index, x, y);
+	draw_set_colour(c_red);
 	draw_text(x, y, ds_list_size(connections));
 	//draw_text(x, y, realName);
 
