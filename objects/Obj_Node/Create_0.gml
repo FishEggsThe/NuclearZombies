@@ -1,3 +1,5 @@
+nodeDebug = false;
+
 connections = ds_list_create();
 
 for(var i = 0; i < instance_number(Obj_Node); ++i;)
