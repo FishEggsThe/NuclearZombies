@@ -22,6 +22,16 @@ function ZombieCollision() {
 	}
 }
 
+function ZombieHurt() {
+	var _inst = instance_place(x, y, Obj_PlayerProjectile);
+	if _inst != noone {
+		hp -= _inst.damage;
+		instance_destroy(_inst);
+		if hp <= 0 {die = true;}
+	}
+	if die { instance_destroy();}
+}
+
 function Pathfinding() {
 	if instance_exists(Obj_Player) {
 		var xP = Obj_Player.x;

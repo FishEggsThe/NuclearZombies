@@ -50,6 +50,16 @@ function PlayerCollision(){
 	//vspeed = ySpeed;
 }
 
+function PlayerHurt() {
+	var _inst = instance_place(x, y, Obj_Zombie);
+	if _inst != noone {
+		hp -= _inst.contactDamage;
+		//instance_destroy(_inst);
+		if hp <= 0 {die = true;}
+	}
+	//if die { }
+}
+
 function PlayerWeapon(){
 	var input_fired =  mouse_check_button_pressed(mb_left);
 	var input_swap =  keyboard_check_pressed(vk_space);
