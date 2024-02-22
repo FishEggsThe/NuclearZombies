@@ -51,11 +51,14 @@ function PlayerCollision(){
 }
 
 function PlayerHurt() {
+	if invFrames > 0 { invFrames--;}
+	
 	var _inst = instance_place(x, y, Obj_Zombie);
-	if _inst != noone {
+	if (_inst != noone && invFrames <= 0) {
 		hp -= _inst.contactDamage;
 		//instance_destroy(_inst);
 		if hp <= 0 {die = true;}
+		invFrames = setInvFrames;
 	}
 	//if die { }
 }
@@ -78,8 +81,9 @@ function PlayerWeapon(){
 
 function DrawPlayer(){
 	var facing = sign(cos(gunAngle*pi/180)); // remove sign() part for the funny
+	var setColor = (invFrames % 4 < 2 ? c_white : c_ltgray);
 	
-	draw_sprite_ext(sprite_index, image_index, x, y, facing, image_yscale, 0, c_white, 1);
+	draw_sprite_ext(sprite_index, image_index, x, y, facing, image_yscale, 0, setColor, 1);
 	var xBack = cos(gunAngle*pi/180) * wepPushback;
 	var yBack = -sin(gunAngle*pi/180) * wepPushback;
 	draw_sprite_ext(wepSprite, image_index, x-xBack, y-yBack, 1, facing, gunAngle, c_white, 1);

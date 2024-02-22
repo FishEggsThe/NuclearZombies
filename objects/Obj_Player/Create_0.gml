@@ -17,6 +17,8 @@ reload = 0;
 maxHP = 8;
 hp = maxHP;
 die = false;
+setInvFrames = 60;
+invFrames = 0;
 
 fire_weapon = function() {
 	//function
