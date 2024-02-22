@@ -6,15 +6,19 @@ ySpeed = 0;
 horizontalDirection = 1;
 verticalDirection = 1;
 
-wepA = 0;
-wepB = 1;
+loadout = [0, 1, -1];
+loadoutID = 0;
+loadoutSize = 2;
 wepSprite = Spr_TestPistol;
 pointing = 0;
 wepPushback = 0;
 reload = 0;
 
+maxHP = 8;
+hp = maxHP;
+
 fire_weapon = function() {
 	//function
 }
 
-UpdateWeapon(wepA);
+UpdateWeapon(loadout[0]);

@@ -59,11 +59,10 @@ function PlayerWeapon(){
 	if reload > 0 { reload--;}
 	
 	if(input_fired && reload <= 0) { fire_weapon(); }
-	else if (input_swap && wepB > -1) {
-		var temp = wepA;
-		wepA = wepB;
-		wepB = temp;
-		UpdateWeapon(wepA);
+	else if (input_swap && loadout[1] > -1) {
+		loadoutID++;
+		if(loadoutID >= loadoutSize) { loadoutID = 0;}
+		UpdateWeapon(loadout[loadoutID]);
 	}
 }
 
