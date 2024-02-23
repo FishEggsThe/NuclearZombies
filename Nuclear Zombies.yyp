@@ -42,6 +42,7 @@
     {"id":{"name":"Spr_Tile","path":"sprites/Spr_Tile/Spr_Tile.yy",},},
     {"id":{"name":"Obj_Node","path":"objects/Obj_Node/Obj_Node.yy",},},
     {"id":{"name":"Spr_Wall","path":"sprites/Spr_Wall/Spr_Wall.yy",},},
+    {"id":{"name":"Obj_WeaponPickup","path":"objects/Obj_WeaponPickup/Obj_WeaponPickup.yy",},},
     {"id":{"name":"Spr_TestShotgun","path":"sprites/Spr_TestShotgun/Spr_TestShotgun.yy",},},
     {"id":{"name":"TileSetTest2","path":"tilesets/TileSetTest2/TileSetTest2.yy",},},
     {"id":{"name":"Spr_TestBullet","path":"sprites/Spr_TestBullet/Spr_TestBullet.yy",},},

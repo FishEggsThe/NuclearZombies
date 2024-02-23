@@ -5,6 +5,8 @@ xSpeed = 0;
 ySpeed = 0;
 horizontalDirection = 1;
 verticalDirection = 1;
+xDraw = 0;
+yDraw = 0;
 
 loadout = [0, 1, -1];
 loadoutID = 0;
@@ -13,6 +15,7 @@ wepSprite = Spr_TestPistol;
 pointing = 0;
 wepPushback = 0;
 reload = 0;
+wepPickupRange = 48;
 
 maxHP = 8;
 hp = maxHP;

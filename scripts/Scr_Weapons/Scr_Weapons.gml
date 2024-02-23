@@ -30,3 +30,10 @@ function UpdateWeapon(wepID){
 			break;
 	}
 }
+
+function GetWeaponSprite(wepID) {
+	switch(wepID) {
+		case 0: return Spr_TestPistol;
+		case 1: return Spr_TestShotgun;
+	}
+}

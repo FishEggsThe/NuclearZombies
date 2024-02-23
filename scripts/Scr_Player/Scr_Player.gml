@@ -20,6 +20,8 @@ function MovePlayer(){
 		speed -= moveSpeedInc;
 	}
 	speed = clamp(speed, 0, moveSpeedMax);
+	xDraw = x;
+	yDraw = y;
 }
 
 function PlayerCollision(){
@@ -32,7 +34,8 @@ function PlayerCollision(){
 		{
 			x += _pixelCheck;
 		}
-	
+		x -= _pixelCheck;
+		
 		hspeed = 0;
 	}
 	// Y Collision
@@ -43,6 +46,7 @@ function PlayerCollision(){
 		{
 			y += _pixelCheck;
 		}
+		y -= _pixelCheck;
 	
 		vspeed = 0;
 	}
@@ -71,11 +75,26 @@ function PlayerWeapon(){
 	if wepPushback > 0 { wepPushback--;}
 	if reload > 0 { reload--;}
 	
+	PickupWeapon();
+	
 	if(input_fired && reload <= 0) { fire_weapon(); }
 	else if (input_swap && loadout[1] > -1) {
 		loadoutID++;
 		if(loadoutID >= loadoutSize) { loadoutID = 0;}
 		UpdateWeapon(loadout[loadoutID]);
+	}
+}
+
+function PickupWeapon(){
+	var nearestWeapon = instance_nearest(x, y, Obj_WeaponPickup);
+	if collision_circle(x, y, 48, nearestWeapon, false, false) {
+		nearestWeapon.inRange = true;
+		var input_pickup = keyboard_check(ord("E"));
+		if input_pickup {
+			loadout[loadoutID] = nearestWeapon.wepID;
+			UpdateWeapon(loadout[loadoutID]);
+			instance_destroy(nearestWeapon);
+		}
 	}
 }
 
