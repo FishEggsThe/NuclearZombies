@@ -8,7 +8,8 @@ verticalDirection = 1;
 xDraw = 0;
 yDraw = 0;
 
-loadout = [0, 1, -1];
+loadout = [0, 0, -1];
+loadoutAmmo = []
 loadoutID = 0;
 loadoutSize = 2;
 wepSprite = Spr_TestPistol;
