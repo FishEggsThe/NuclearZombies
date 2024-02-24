@@ -17,6 +17,7 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings": [
+    {"name":"Obj_Control","order":6,"path":"objects/Obj_Control/Obj_Control.yy",},
     {"name":"Spr_TestZombie","order":6,"path":"sprites/Spr_TestZombie/Spr_TestZombie.yy",},
     {"name":"Scr_Weapons","order":1,"path":"scripts/Scr_Weapons/Scr_Weapons.yy",},
     {"name":"Scr_General","order":3,"path":"scripts/Scr_General/Scr_General.yy",},
@@ -28,6 +29,7 @@
     {"name":"TileSetTest2","order":1,"path":"tilesets/TileSetTest2/TileSetTest2.yy",},
     {"name":"Spr_TestBullet","order":3,"path":"sprites/Spr_TestBullet/Spr_TestBullet.yy",},
     {"name":"Scr_Zombies","order":2,"path":"scripts/Scr_Zombies/Scr_Zombies.yy",},
+    {"name":"Rm_Menu","order":1,"path":"rooms/Rm_Menu/Rm_Menu.yy",},
     {"name":"Spr_TestPistol","order":2,"path":"sprites/Spr_TestPistol/Spr_TestPistol.yy",},
     {"name":"Obj_PlayerProjectile","order":1,"path":"objects/Obj_PlayerProjectile/Obj_PlayerProjectile.yy",},
     {"name":"Sprite8","order":16,"path":"sprites/Sprite8/Sprite8.yy",},

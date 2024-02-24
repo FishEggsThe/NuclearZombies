@@ -39,10 +39,10 @@ function Pathfinding() {
 		var currTileMap = layer_tilemap_get_id("Tiles_Wall");
 		var lof = collision_line(x, y, xP, yP, currTileMap, false, false);
 		
-		if (lof = noone){
+		/*if (lof = noone){
 			show_debug_message("Yes Yes!");
 		} else {
 			show_debug_message("No No No!");
-		}
+		}*/
 	}
 }

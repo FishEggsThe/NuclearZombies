@@ -34,6 +34,7 @@
     "IDEVersion": "2023.11.1.129",
   },
   "resources": [
+    {"id":{"name":"Obj_Control","path":"objects/Obj_Control/Obj_Control.yy",},},
     {"id":{"name":"Spr_TestZombie","path":"sprites/Spr_TestZombie/Spr_TestZombie.yy",},},
     {"id":{"name":"Scr_Weapons","path":"scripts/Scr_Weapons/Scr_Weapons.yy",},},
     {"id":{"name":"chives","path":"sprites/chives/chives.yy",},},
@@ -47,6 +48,7 @@
     {"id":{"name":"TileSetTest2","path":"tilesets/TileSetTest2/TileSetTest2.yy",},},
     {"id":{"name":"Spr_TestBullet","path":"sprites/Spr_TestBullet/Spr_TestBullet.yy",},},
     {"id":{"name":"Scr_Zombies","path":"scripts/Scr_Zombies/Scr_Zombies.yy",},},
+    {"id":{"name":"Rm_Menu","path":"rooms/Rm_Menu/Rm_Menu.yy",},},
     {"id":{"name":"Spr_TestPistol","path":"sprites/Spr_TestPistol/Spr_TestPistol.yy",},},
     {"id":{"name":"Scr_Player","path":"scripts/Scr_Player/Scr_Player.yy",},},
     {"id":{"name":"TileSetTest","path":"tilesets/TileSetTest/TileSetTest.yy",},},
@@ -57,6 +59,7 @@
     {"id":{"name":"TestRoom","path":"rooms/TestRoom/TestRoom.yy",},},
   ],
   "RoomOrderNodes": [
+    {"roomId":{"name":"Rm_Menu","path":"rooms/Rm_Menu/Rm_Menu.yy",},},
     {"roomId":{"name":"TestRoom","path":"rooms/TestRoom/TestRoom.yy",},},
   ],
   "templateType": "game",

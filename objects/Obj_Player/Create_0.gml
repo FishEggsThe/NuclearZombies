@@ -9,7 +9,7 @@ xDraw = 0;
 yDraw = 0;
 
 loadout = [0, 0, -1];
-loadoutAmmo = []
+loadoutAmmo = [0, 0, 0];
 loadoutID = 0;
 loadoutSize = 2;
 wepSprite = Spr_TestPistol;
