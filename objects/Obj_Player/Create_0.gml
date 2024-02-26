@@ -1,12 +1,11 @@
 moveSpeed = 0;
-moveSpeedInc = 0.8;
+moveSpeedInc = 1;
 moveSpeedMax = 4;
+moveDirection = 0;
 xSpeed = 0;
 ySpeed = 0;
 horizontalDirection = 1;
 verticalDirection = 1;
-xDraw = 0;
-yDraw = 0;
 inControl = true;
 
 loadout = [0, 0, -1];

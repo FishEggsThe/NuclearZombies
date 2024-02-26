@@ -7,7 +7,7 @@ function UseSensor(x1, y1, x2, y2, spr){
 	var ww, hh;
 	ww = sprite_get_bbox_left(spr) - sprite_get_bbox_right(spr);
 	hh = sprite_get_bbox_bottom(spr) - sprite_get_bbox_top(spr);
-	Obj_Sensor.image_yscale = 0.1;//sqrt(sqr(ww) + sqr(hh)) / sprite_get_height(Spr_Collision);
+	Obj_Sensor.image_yscale = 0.3;//sqrt(sqr(ww) + sqr(hh)) / sprite_get_height(Spr_Collision);
 		
 	with(Obj_Sensor) {
 		if place_meeting(x, y, layer_tilemap_get_id("Tiles_Wall")) { touching = true;}

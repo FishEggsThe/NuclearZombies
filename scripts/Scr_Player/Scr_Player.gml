@@ -6,49 +6,47 @@ function MovePlayer(){
 
 	horizontalDirection = input_right - input_left;
 	verticalDirection = input_down - input_up;
-	var moveDirection = point_direction(0, 0, horizontalDirection, verticalDirection); //* pi/180;
 
 	var checkForMovement = abs(horizontalDirection) + abs(verticalDirection)
 	if (checkForMovement > 0) {
-		direction = moveDirection;
-		speed += moveSpeedInc;
-		//xSpeed += cos(moveDirection) * moveSpeedInc;
-		//ySpeed += -sin(moveDirection) * moveSpeedInc;
-		
-		PlayerCollision();
+		moveDirection = point_direction(0, 0, horizontalDirection, verticalDirection) * pi/180;
+		moveSpeed += moveSpeedInc;
 	} else {
-		speed -= moveSpeedInc;
+		moveSpeed -= moveSpeedInc;
 	}
-	speed = clamp(speed, 0, moveSpeedMax);
-	xDraw = x;
-	yDraw = y;
+	moveSpeed = clamp(moveSpeed, 0, moveSpeedMax);
+	xSpeed = cos(moveDirection) * moveSpeed;
+	ySpeed = -sin(moveDirection) * moveSpeed;
+	PlayerCollision();
+	x += xSpeed;
+	y += ySpeed;
 }
 
 function PlayerCollision(){
 	var currTileMap = layer_tilemap_get_id("Tiles_Wall");
 	// X Collision
-	if place_meeting(x + hspeed, y, currTileMap)
+	if place_meeting(x + xSpeed, y, currTileMap)
 	{
-		var _pixelCheck = sign(hspeed);
+		var _pixelCheck = sign(xSpeed);
 		while !place_meeting(x+_pixelCheck, y, currTileMap)
 		{
 			x += _pixelCheck;
 		}
 		x -= _pixelCheck;
 		
-		hspeed = 0;
+		xSpeed = 0;
 	}
 	// Y Collision
-	if place_meeting(x + hspeed, y + vspeed, currTileMap)
+	if place_meeting(x + xSpeed, y + ySpeed, currTileMap)
 	{
-		var _pixelCheck = sign(vspeed);
-		while !place_meeting(x+hspeed, y+_pixelCheck, currTileMap)
+		var _pixelCheck = sign(ySpeed);
+		while !place_meeting(x+xSpeed, y+_pixelCheck, currTileMap)
 		{
 			y += _pixelCheck;
 		}
 		y -= _pixelCheck;
 	
-		vspeed = 0;
+		ySpeed = 0;
 	}
 	//hspeed = xSpeed;
 	//vspeed = ySpeed;

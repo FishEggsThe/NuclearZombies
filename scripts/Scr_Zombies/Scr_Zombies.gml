@@ -1,5 +1,7 @@
 function MoveZombie() {
 	if place_meeting(x, y, Obj_Player) { speed = 0;}
+	//speed = moveSpeed;
+	//direction = point_direction(x, y, Obj_Player.x, Obj_Player.y);
 	else { Pathfinding();}
 	
 }
