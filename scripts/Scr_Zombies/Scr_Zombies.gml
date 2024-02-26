@@ -11,12 +11,14 @@ function ZombieCollision() {
 	{
 		var _pixelCheck = -sign(hspeed);
 		x += _pixelCheck;
+		vspeed = sign(vspeed)*moveSpeed;
 	}
 	// Y Collision
 	if place_meeting(x + hspeed, y + vspeed, currTileMap)
 	{
 		var _pixelCheck = -sign(vspeed);
 		y += _pixelCheck;
+		hspeed = sign(hspeed)*moveSpeed;
 	}
 }
 
@@ -48,7 +50,7 @@ function FollowPath(){
 		//var lof = collision_line(x, y, skipNode.x, skipNode.y, currTileMap, false, false);
 		
 		
-		nextNodeIndex = (!UseSensor(x, y, skipNode.x, skipNode.y) ? 1 : 0);
+		nextNodeIndex = (!UseSensor(x, y, skipNode.x, skipNode.y, sprite_index) ? 1 : 0);
 	}
 	
 	var nextNode = ds_list_find_value(nodePath, nextNodeIndex);
@@ -64,7 +66,7 @@ function Pathfinding() {
 		var currTileMap = layer_tilemap_get_id("Tiles_Wall");
 		//var lof = collision_line(x, y, xP, yP, currTileMap, false, false);
 		
-		if (!UseSensor(x, y, xP, yP)){
+		if (!UseSensor(x, y, xP, yP, sprite_index)){
 			//show_debug_message("Yes Yes!");
 			speed = moveSpeed;
 			var goto = point_direction(x, y, xP, yP);
@@ -95,6 +97,7 @@ function Dijkstra()
 		ds_list_add(steppedNodes, currNode);
 		var minEdge = 99999;
 		var minID = 0;
+		var stuckInLoop = true;
 		
 		for(var i = 0; i < ds_list_size(currNode.connections); i++)
 		{
@@ -108,6 +111,7 @@ function Dijkstra()
 				
 				if (edge < minEdge)
 				{
+					stuckInLoop = false;
 					minEdge = edge;
 					minID = i;
 				}
@@ -116,7 +120,8 @@ function Dijkstra()
 		currNode = ds_list_find_value(currNode.connections, minID);
 		ds_list_add(createNodePath, currNode);
 		//lof = collision_line(currNode.x, currNode.y, xP, yP, currTileMap, false, false);
-	} until(!UseSensor(currNode.x, currNode.y, xP, yP));
+		if stuckInLoop { break;}
+	} until(!UseSensor(currNode.x, currNode.y, xP, yP, sprite_index));
 }
 
 function DrawZombie() {
