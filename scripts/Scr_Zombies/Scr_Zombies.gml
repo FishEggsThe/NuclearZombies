@@ -72,12 +72,13 @@ function Dijkstra()
 		
 		for(var i = 0; i < ds_list_size(currNode.connections); i++)
 		{
-			var nodeChecking = ds_list_find_value(currNode.connections, i);
-			var checkIfAlreadyGoneHere = ds_list_find_index(steppedNodes, nodeChecking);
+			var node = ds_list_find_value(currNode.connections, i);
+			var checkIfAlreadyGoneHere = ds_list_find_index(steppedNodes, node);
 			
 			if (checkIfAlreadyGoneHere <= -1)
 			{
-				var edge = ds_list_find_value(currNode.edges, i);
+				//var edge = ds_list_find_value(currNode.edges, i);
+				var edge = point_distance(node.x, node.y, xP, yP);
 				
 				if (edge < minEdge)
 				{
