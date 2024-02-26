@@ -41,14 +41,14 @@ function FollowPath(){
 	} else { equal = false;}
 	
 	
-	if equal {
-		//something
-	} else {
+	if !equal {
 		ds_list_copy(nodePath, createNodePath);
 		var skipNode = ds_list_find_value(nodePath, 1);
 		var currTileMap = layer_tilemap_get_id("Tiles_Wall");
-		var lof = collision_line(x, y, skipNode.x, skipNode.y, currTileMap, false, false);
-		nextNodeIndex = (lof == noone ? 1 : 0);
+		//var lof = collision_line(x, y, skipNode.x, skipNode.y, currTileMap, false, false);
+		
+		
+		nextNodeIndex = (!UseSensor(x, y, skipNode.x, skipNode.y) ? 1 : 0);
 	}
 	
 	var nextNode = ds_list_find_value(nodePath, nextNodeIndex);
@@ -62,9 +62,9 @@ function Pathfinding() {
 		var xP = Obj_Player.x;
 		var yP = Obj_Player.y;
 		var currTileMap = layer_tilemap_get_id("Tiles_Wall");
-		var lof = collision_line(x, y, xP, yP, currTileMap, false, false);
+		//var lof = collision_line(x, y, xP, yP, currTileMap, false, false);
 		
-		if (lof == noone){
+		if (!UseSensor(x, y, xP, yP)){
 			//show_debug_message("Yes Yes!");
 			speed = moveSpeed;
 			var goto = point_direction(x, y, xP, yP);
@@ -88,7 +88,7 @@ function Dijkstra()
 	var xP = Obj_Player.x;
 	var yP = Obj_Player.y;
 	var currTileMap = layer_tilemap_get_id("Tiles_Wall");
-	var lof = collision_line(currNode.x, currNode.y, xP, yP, currTileMap, false, false);
+	//var lof = collision_line(currNode.x, currNode.y, xP, yP, currTileMap, false, false);
 	
 	ds_list_add(createNodePath, currNode);
 	do {
@@ -115,8 +115,8 @@ function Dijkstra()
 		}
 		currNode = ds_list_find_value(currNode.connections, minID);
 		ds_list_add(createNodePath, currNode);
-		lof = collision_line(currNode.x, currNode.y, xP, yP, currTileMap, false, false);
-	} until(lof == noone);
+		//lof = collision_line(currNode.x, currNode.y, xP, yP, currTileMap, false, false);
+	} until(!UseSensor(currNode.x, currNode.y, xP, yP));
 }
 
 function DrawZombie() {

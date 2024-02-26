@@ -1,4 +1,3 @@
-Pathfinding();
 MoveZombie();
 ZombieCollision();
 ZombieHurt()

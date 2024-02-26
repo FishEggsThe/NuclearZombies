@@ -11,3 +11,5 @@ nextNodeIndex = 0;
 die = function(){
 	instance_destroy();	
 }
+
+if !instance_exists(Obj_Sensor) { instance_create_depth(x, y, 10, Obj_Sensor);}
