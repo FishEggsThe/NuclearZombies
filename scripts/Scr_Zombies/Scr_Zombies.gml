@@ -1,9 +1,6 @@
 function MoveZombie() {
 	if place_meeting(x, y, Obj_Player) { speed = 0;}
-	//else { speed = moveSpeed;}
-	
-	Pathfinding();
-
+	else { Pathfinding();}
 	
 }
 
@@ -32,9 +29,36 @@ function ZombieHurt() {
 	}
 }
 
+function FollowPath(){
+	var equal = true;
+	if(ds_list_size(createNodePath) == ds_list_size(nodePath)) {
+		for(var i = 0; i < ds_list_size(createNodePath); i++) {
+			if(ds_list_find_value(createNodePath, i) != ds_list_find_value(nodePath, i)) {
+			    equal = false;
+			    break;
+			}
+		}
+	} else { equal = false;}
+	
+	
+	if equal {
+		//something
+	} else {
+		ds_list_copy(nodePath, createNodePath);
+		var skipNode = ds_list_find_value(nodePath, 1);
+		var currTileMap = layer_tilemap_get_id("Tiles_Wall");
+		var lof = collision_line(x, y, skipNode.x, skipNode.y, currTileMap, false, false);
+		nextNodeIndex = (lof == noone ? 1 : 0);
+	}
+	
+	var nextNode = ds_list_find_value(nodePath, nextNodeIndex);
+	move_towards_point(nextNode.x, nextNode.y, moveSpeed);
+	if position_meeting(x, y, nextNode) { nextNodeIndex++;}
+}
+
 function Pathfinding() {
 	if instance_exists(Obj_Player) {
-		speed = moveSpeed;
+		speed = 0;
 		var xP = Obj_Player.x;
 		var yP = Obj_Player.y;
 		var currTileMap = layer_tilemap_get_id("Tiles_Wall");
@@ -42,11 +66,13 @@ function Pathfinding() {
 		
 		if (lof == noone){
 			//show_debug_message("Yes Yes!");
+			speed = moveSpeed;
 			var goto = point_direction(x, y, xP, yP);
 			direction = goto;
 		} else {
-			//show_debug_message("I don't know how to make fucking pathfinding");
+			//show_debug_message("I KNOW HOW TO PATHFIND :DDDDDDD");
 			Dijkstra();
+			FollowPath();
 		}
 	} else {
 		speed = 0;
@@ -56,7 +82,7 @@ function Pathfinding() {
 function Dijkstra()
 {
 	ds_list_clear(steppedNodes);
-	ds_list_clear(nodePath);
+	ds_list_clear(createNodePath);
 	
 	currNode = instance_nearest(x, y, Obj_Node);
 	var xP = Obj_Player.x;
@@ -64,7 +90,7 @@ function Dijkstra()
 	var currTileMap = layer_tilemap_get_id("Tiles_Wall");
 	var lof = collision_line(currNode.x, currNode.y, xP, yP, currTileMap, false, false);
 	
-	ds_list_add(nodePath, currNode);
+	ds_list_add(createNodePath, currNode);
 	do {
 		ds_list_add(steppedNodes, currNode);
 		var minEdge = 99999;
@@ -88,7 +114,7 @@ function Dijkstra()
 			}
 		}
 		currNode = ds_list_find_value(currNode.connections, minID);
-		ds_list_add(nodePath, currNode);
+		ds_list_add(createNodePath, currNode);
 		lof = collision_line(currNode.x, currNode.y, xP, yP, currTileMap, false, false);
 	} until(lof == noone);
 }
