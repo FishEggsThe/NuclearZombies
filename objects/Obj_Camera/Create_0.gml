@@ -14,6 +14,7 @@ hpHeight = 80;
 hpBorder = 10;
 
 shake = 0;
+shakeReduce = 1.5;
 reduce = false;
 
 global.shake_screen = function(sVal) {

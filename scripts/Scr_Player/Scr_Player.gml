@@ -64,7 +64,8 @@ function PlayerHurt() {
 		if hp <= 0 {die = true;}
 		invFrames = setInvFrames;
 	}
-	//if die { }
+	
+	if die { inControl = false;}
 }
 
 function PlayerWeapon(){

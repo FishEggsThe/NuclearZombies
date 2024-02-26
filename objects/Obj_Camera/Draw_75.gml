@@ -21,4 +21,6 @@ if instance_exists(Obj_Player) {
 
 	// Crosshair
 	draw_sprite_ext(Spr_TestBullet, 0, crosshairX, crosshairY, 2, 2, 0, c_red, 1);
+	
+	draw_text_transformed(guiWidth/2, guiHeight/2, shake, 3, 3, 0);
 }

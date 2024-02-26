@@ -35,6 +35,7 @@
   },
   "resources": [
     {"id":{"name":"Obj_Control","path":"objects/Obj_Control/Obj_Control.yy",},},
+    {"id":{"name":"Scr_Camera","path":"scripts/Scr_Camera/Scr_Camera.yy",},},
     {"id":{"name":"Spr_TestZombie","path":"sprites/Spr_TestZombie/Spr_TestZombie.yy",},},
     {"id":{"name":"Scr_Weapons","path":"scripts/Scr_Weapons/Scr_Weapons.yy",},},
     {"id":{"name":"chives","path":"sprites/chives/chives.yy",},},

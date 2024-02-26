@@ -1,6 +1,7 @@
 nodeDebug = false;
 
 connections = ds_list_create();
+edges = ds_list_create();
 
 for(var i = 0; i < instance_number(Obj_Node); ++i;)
 {
@@ -16,6 +17,7 @@ for(var i = 0; i < instance_number(Obj_Node); ++i;)
 
     if(currNode != self && trueConnect == noone) {
 		ds_list_add(connections, currNode);
+		ds_list_add(edges, point_distance(x, y, currNode.x, currNode.y));
 	}
 }
 

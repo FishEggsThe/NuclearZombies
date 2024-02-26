@@ -3,7 +3,7 @@ function UpdateWeapon(wepID){
 		case 0:
 			wepSprite = Spr_TestPistol;
 			fire_weapon = function() {
-				global.shake_screen(1);
+				AddShake(1); //global.shake_screen(100); why the fuck did this method stop working;
 				wepPushback = 10;
 				reload = 6;
 				with instance_create_layer(x, y, "Instances", Obj_PlayerProjectile) {
@@ -15,7 +15,7 @@ function UpdateWeapon(wepID){
 		case 1:
 			wepSprite = Spr_TestShotgun;
 			fire_weapon = function() {
-				global.shake_screen(5);
+				AddShake(5);
 				wepPushback = 10;
 				reload += 30;
 				repeat(5) {

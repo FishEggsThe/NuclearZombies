@@ -7,6 +7,7 @@ horizontalDirection = 1;
 verticalDirection = 1;
 xDraw = 0;
 yDraw = 0;
+inControl = true;
 
 loadout = [0, 0, -1];
 loadoutAmmo = [0, 0, 0];

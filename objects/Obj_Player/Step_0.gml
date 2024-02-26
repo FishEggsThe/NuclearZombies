@@ -1,6 +1,8 @@
-MovePlayer();
-PlayerWeapon();
-PlayerHurt();
+if inControl {
+	MovePlayer();
+	PlayerWeapon();
+	PlayerHurt();
+}
 
 //if keyboard_check(ord("0")) {wepA = 0;}
 //if keyboard_check(ord("1")) {wepA = 1;}
