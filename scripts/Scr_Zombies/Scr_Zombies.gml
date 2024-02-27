@@ -3,16 +3,25 @@ function MoveZombie() {
 	if place_meeting(x, y, Obj_Player)
 	{ xSpeed = 0; ySpeed = 0;}
 	else { Pathfinding();}
-	//moveDirection = point_direction(x, y, Obj_Player.x, Obj_Player.y) * pi/180;
-	//xSpeed = cos(moveDirection) * moveSpeed;
-	//ySpeed = -sin(moveDirection) * moveSpeed;
+	
+	/*var touchedZombie = place_meeting(x, y, Obj_Zombie);
+	xPush = 0;
+	yPush = 0;
+	if touchedZombie != noone {
+		var pushDirection = point_direction(touchedZombie.x, touchedZombie.y, x, y) * pi/180;
+		var pushAmount = 0.1;
+		xPush = cos(pushDirection) * pushAmount;
+		yPush = -sin(pushDirection) * pushAmount;
+	}
+	xSpeed += xPush;
+	ySpeed += yPush;*/
+	
 	ZombieCollision();
-	x += xSpeed;
-	y += ySpeed;
 }
 
 function ZombieCollision() {
 	var currTileMap = layer_tilemap_get_id("Tiles_Wall");
+	//var touchingZombie = instance_place(x, y, Obj_Zombie);
 	// X Collision
 	if place_meeting(x + xSpeed, y, currTileMap)
 	{
@@ -29,6 +38,9 @@ function ZombieCollision() {
 		xSpeed = sign(xSpeed)*moveSpeed;
 		ySpeed = 0;
 	}
+	
+	x += xSpeed;
+	y += ySpeed;
 }
 
 function Pathfinding() {
@@ -50,7 +62,7 @@ function Pathfinding() {
 			//show_debug_message("I KNOW HOW TO PATHFIND :DDDDDDD");
 			Dijkstra();
 			FollowPath();
-			ZombieCollision();
+			//ZombieCollision();
 		}
 	} else {
 		xSpeed = 0;
@@ -132,20 +144,29 @@ function Dijkstra()
 }
 
 function ZombieHurt() {
+	if hitFlash > 0 { hitFlash--;}
+	
 	var _inst = instance_place(x, y, Obj_PlayerProjectile);
 	if _inst != noone {
 		hp -= _inst.damage;
 		instance_destroy(_inst);
 		if hp <= 0 { die();}
+		hitFlash = hitFlashSet;
 	}
 }
 
 function DrawZombie() {
 	var facing = sign(cos(direction*pi/180)); // remove sign() part for the funny
-	draw_sprite_ext(sprite_index, image_index, x, y, facing, image_yscale, 0, c_white, 1);
+	var setFlash = (hitFlash > 0 ? true : false);
+	
+	gpu_set_fog(setFlash, c_white, 0, 1000)
+	draw_sprite_ext(sprite_index, image_index, x, y, facing, image_yscale, 0, drawColor, 1);
+	gpu_set_fog(false, c_white, 0, 1000)
+	
 	draw_set_colour(c_black);
 	draw_text_transformed(x, y, hp, 3, 3, 0);
 	
+	/*
 	if ds_list_size(nodePath) > 0 {
 		for(var i = 0; i < ds_list_size(nodePath)-1; i++) {
 			var nodeA = ds_list_find_value(nodePath, i);
@@ -155,4 +176,5 @@ function DrawZombie() {
 			draw_line_width(nodeA.x, nodeA.y, nodeB.x, nodeB.y, 5);
 		}
 	}
+	*/
 }

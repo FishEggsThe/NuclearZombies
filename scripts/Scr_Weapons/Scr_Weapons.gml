@@ -5,7 +5,7 @@ function UpdateWeapon(wepID){
 			fire_weapon = function() {
 				AddShake(1); //global.shake_screen(100); why the fuck did this method stop working;
 				wepPushback = 10;
-				reload = 6;
+				reload = 12;
 				with instance_create_layer(x, y, "Instances", Obj_PlayerProjectile) {
 					direction = random_range(other.gunAngle-5, other.gunAngle+5);
 					speed = 10;

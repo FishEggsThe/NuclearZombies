@@ -116,6 +116,7 @@ function DrawPlayer(){
 	gpu_set_fog(setFlash, c_white, 0, 1000)
 	draw_sprite_ext(sprite_index, image_index, x, y, facing, image_yscale, 0, c_white, 1);
 	gpu_set_fog(false, c_white ,0 ,1000)
+	
 	var xBack = cos(gunAngle*pi/180) * wepPushback;
 	var yBack = -sin(gunAngle*pi/180) * wepPushback;
 	draw_sprite_ext(wepSprite, image_index, x-xBack, y-yBack, 1, facing, gunAngle, c_white, 1);
