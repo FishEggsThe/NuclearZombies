@@ -1,3 +1,2 @@
 MoveZombie();
-ZombieCollision();
 ZombieHurt()

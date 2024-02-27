@@ -1,35 +1,60 @@
 function MoveZombie() {
-	if place_meeting(x, y, Obj_Player) { speed = 0;}
-	//speed = moveSpeed;
-	//direction = point_direction(x, y, Obj_Player.x, Obj_Player.y);
+	speed = 0;
+	if place_meeting(x, y, Obj_Player)
+	{ xSpeed = 0; ySpeed = 0;}
 	else { Pathfinding();}
-	
+	//moveDirection = point_direction(x, y, Obj_Player.x, Obj_Player.y) * pi/180;
+	//xSpeed = cos(moveDirection) * moveSpeed;
+	//ySpeed = -sin(moveDirection) * moveSpeed;
+	ZombieCollision();
+	x += xSpeed;
+	y += ySpeed;
 }
 
 function ZombieCollision() {
 	var currTileMap = layer_tilemap_get_id("Tiles_Wall");
 	// X Collision
-	if place_meeting(x + hspeed, y, currTileMap)
+	if place_meeting(x + xSpeed, y, currTileMap)
 	{
-		var _pixelCheck = -sign(hspeed);
+		var _pixelCheck = -sign(xSpeed);
 		x += _pixelCheck;
-		vspeed = sign(vspeed)*moveSpeed;
+		ySpeed = sign(ySpeed)*moveSpeed;
+		xSpeed = 0;
 	}
 	// Y Collision
-	if place_meeting(x + hspeed, y + vspeed, currTileMap)
+	if place_meeting(x + xSpeed, y + ySpeed, currTileMap)
 	{
-		var _pixelCheck = -sign(vspeed);
+		var _pixelCheck = -sign(ySpeed);
 		y += _pixelCheck;
-		hspeed = sign(hspeed)*moveSpeed;
+		xSpeed = sign(xSpeed)*moveSpeed;
+		ySpeed = 0;
 	}
 }
 
-function ZombieHurt() {
-	var _inst = instance_place(x, y, Obj_PlayerProjectile);
-	if _inst != noone {
-		hp -= _inst.damage;
-		instance_destroy(_inst);
-		if hp <= 0 { die();}
+function Pathfinding() {
+	if instance_exists(Obj_Player) {
+		var xP = Obj_Player.x;
+		var yP = Obj_Player.y;
+		var currTileMap = layer_tilemap_get_id("Tiles_Wall");
+		//var lof = collision_line(x, y, xP, yP, currTileMap, false, false);
+		
+		if (!UseSensor(x, y, xP, yP, sprite_index)){
+			//show_debug_message("Yes Yes!");
+			moveDirection = point_direction(x, y, xP, yP) * pi/180;
+			xSpeed = cos(moveDirection) * moveSpeed;
+			ySpeed = -sin(moveDirection) * moveSpeed;
+			//ZombieCollision();
+			//x += xSpeed;
+			//y += ySpeed;
+		} else {
+			//show_debug_message("I KNOW HOW TO PATHFIND :DDDDDDD");
+			Dijkstra();
+			FollowPath();
+			ZombieCollision();
+		}
+	} else {
+		xSpeed = 0;
+		ySpeed = 0;
 	}
 }
 
@@ -56,31 +81,11 @@ function FollowPath(){
 	}
 	
 	var nextNode = ds_list_find_value(nodePath, nextNodeIndex);
-	move_towards_point(nextNode.x, nextNode.y, moveSpeed);
+	//move_towards_point(nextNode.x, nextNode.y, moveSpeed);
+	moveDirection = point_direction(x, y, nextNode.x, nextNode.y) * pi/180;
+	xSpeed = cos(moveDirection) * moveSpeed;
+	ySpeed = -sin(moveDirection) * moveSpeed;
 	if position_meeting(x, y, nextNode) { nextNodeIndex++;}
-}
-
-function Pathfinding() {
-	if instance_exists(Obj_Player) {
-		speed = 0;
-		var xP = Obj_Player.x;
-		var yP = Obj_Player.y;
-		var currTileMap = layer_tilemap_get_id("Tiles_Wall");
-		//var lof = collision_line(x, y, xP, yP, currTileMap, false, false);
-		
-		if (!UseSensor(x, y, xP, yP, sprite_index)){
-			//show_debug_message("Yes Yes!");
-			speed = moveSpeed;
-			var goto = point_direction(x, y, xP, yP);
-			direction = goto;
-		} else {
-			//show_debug_message("I KNOW HOW TO PATHFIND :DDDDDDD");
-			Dijkstra();
-			FollowPath();
-		}
-	} else {
-		speed = 0;
-	}
 }
 
 function Dijkstra()
@@ -124,6 +129,15 @@ function Dijkstra()
 		//lof = collision_line(currNode.x, currNode.y, xP, yP, currTileMap, false, false);
 		if stuckInLoop { break;}
 	} until(!UseSensor(currNode.x, currNode.y, xP, yP, sprite_index));
+}
+
+function ZombieHurt() {
+	var _inst = instance_place(x, y, Obj_PlayerProjectile);
+	if _inst != noone {
+		hp -= _inst.damage;
+		instance_destroy(_inst);
+		if hp <= 0 { die();}
+	}
 }
 
 function DrawZombie() {
