@@ -23,11 +23,19 @@ function ZombieCollision() {
 	var currTileMap = layer_tilemap_get_id("Tiles_Wall");
 	//var touchingZombie = instance_place(x, y, Obj_Zombie);
 	// X Collision
+	var sensorDist = 60;
+	
 	if place_meeting(x + xSpeed, y, currTileMap)
 	{
 		var _pixelCheck = -sign(xSpeed);
 		x += _pixelCheck;
-		ySpeed = sign(ySpeed)*moveSpeed;
+		if(!UseSensor(x, y, Obj_Player.x, Obj_Player.y, 0.1)) {
+			if(!UseSensor(x, y, x+(-sensorDist*_pixelCheck), y+sensorDist, 0.1)) {
+				ySpeed = moveSpeed;
+			} else if (!UseSensor(x, y, x+(-sensorDist*_pixelCheck), y-sensorDist, 0.1)) {
+				ySpeed = -moveSpeed;
+			}
+		} else { ySpeed = sign(ySpeed)*moveSpeed;}
 		xSpeed = 0;
 	}
 	// Y Collision
@@ -35,7 +43,13 @@ function ZombieCollision() {
 	{
 		var _pixelCheck = -sign(ySpeed);
 		y += _pixelCheck;
-		xSpeed = sign(xSpeed)*moveSpeed;
+		if(!UseSensor(x, y, Obj_Player.x, Obj_Player.y, 0.1)) {
+			if(!UseSensor(x, y, x+sensorDist, y+(-sensorDist*_pixelCheck), 0.1)) {
+				xSpeed = moveSpeed;
+			} else if (!UseSensor(x, y, x-sensorDist, y+(-sensorDist*_pixelCheck), 0.1)) {
+				xSpeed = -moveSpeed;
+			}
+		} else { xSpeed = sign(xSpeed)*moveSpeed;}
 		ySpeed = 0;
 	}
 	
@@ -50,7 +64,7 @@ function Pathfinding() {
 		var currTileMap = layer_tilemap_get_id("Tiles_Wall");
 		//var lof = collision_line(x, y, xP, yP, currTileMap, false, false);
 		
-		if (!UseSensor(x, y, xP, yP, sprite_index)){
+		if (!UseSensor(x, y, xP, yP, 0.3)){
 			//show_debug_message("Yes Yes!");
 			moveDirection = point_direction(x, y, xP, yP) * pi/180;
 			xSpeed = cos(moveDirection) * moveSpeed;
@@ -89,7 +103,7 @@ function FollowPath(){
 		//var lof = collision_line(x, y, skipNode.x, skipNode.y, currTileMap, false, false);
 		
 		
-		nextNodeIndex = (!UseSensor(x, y, skipNode.x, skipNode.y, sprite_index) ? 1 : 0);
+		nextNodeIndex = (!UseSensor(x, y, skipNode.x, skipNode.y, 0.3) ? 1 : 0);
 	}
 	
 	var nextNode = ds_list_find_value(nodePath, nextNodeIndex);
@@ -140,7 +154,7 @@ function Dijkstra()
 		ds_list_add(createNodePath, currNode);
 		//lof = collision_line(currNode.x, currNode.y, xP, yP, currTileMap, false, false);
 		if stuckInLoop { break;}
-	} until(!UseSensor(currNode.x, currNode.y, xP, yP, sprite_index));
+	} until(!UseSensor(currNode.x, currNode.y, xP, yP, 0.3));
 }
 
 function ZombieHurt() {
