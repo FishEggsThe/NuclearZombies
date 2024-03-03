@@ -74,9 +74,12 @@ function PlayerWeapon(){
 	if wepPushback > 0 { wepPushback--;}
 	if reload > 0 { reload--;}
 	
+	if input_fired { fireBuffer = fireBufferSet;}
+	if fireBuffer > 0 { fireBuffer--;}
+	
 	//PickupWeapon();
 	
-	if(input_fired && reload <= 0) { fire_weapon(); }
+	if(fireBuffer > 0 && reload <= 0) { fire_weapon(); }
 	else if (input_swap && loadout[1] > -1) {
 		loadoutID++;
 		if(loadoutID >= loadoutSize) { loadoutID = 0;}

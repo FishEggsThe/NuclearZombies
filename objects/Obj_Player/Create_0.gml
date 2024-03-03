@@ -19,6 +19,8 @@ pointing = 0;
 wepPushback = 0;
 reload = 0;
 wepPickupRange = 48;
+fireBuffer = 0;
+fireBufferSet = 10;
 
 maxHP = 8;
 hp = maxHP;
