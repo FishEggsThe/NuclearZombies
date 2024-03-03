@@ -34,6 +34,7 @@
     {"name":"Rm_Menu","order":1,"path":"rooms/Rm_Menu/Rm_Menu.yy",},
     {"name":"Spr_TestPistol","order":2,"path":"sprites/Spr_TestPistol/Spr_TestPistol.yy",},
     {"name":"Spr_Collision","order":7,"path":"sprites/Spr_Collision/Spr_Collision.yy",},
+    {"name":"Obj_RoundText","order":10,"path":"objects/Obj_RoundText/Obj_RoundText.yy",},
     {"name":"Obj_PlayerProjectile","order":1,"path":"objects/Obj_PlayerProjectile/Obj_PlayerProjectile.yy",},
     {"name":"Rm_House","order":2,"path":"rooms/Rm_House/Rm_House.yy",},
     {"name":"Obj_Sensor","order":7,"path":"objects/Obj_Sensor/Obj_Sensor.yy",},

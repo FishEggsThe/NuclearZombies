@@ -54,6 +54,7 @@
     {"id":{"name":"Spr_TestPistol","path":"sprites/Spr_TestPistol/Spr_TestPistol.yy",},},
     {"id":{"name":"Spr_Collision","path":"sprites/Spr_Collision/Spr_Collision.yy",},},
     {"id":{"name":"Scr_Player","path":"scripts/Scr_Player/Scr_Player.yy",},},
+    {"id":{"name":"Obj_RoundText","path":"objects/Obj_RoundText/Obj_RoundText.yy",},},
     {"id":{"name":"TileSetTest","path":"tilesets/TileSetTest/TileSetTest.yy",},},
     {"id":{"name":"Obj_PlayerProjectile","path":"objects/Obj_PlayerProjectile/Obj_PlayerProjectile.yy",},},
     {"id":{"name":"Rm_House","path":"rooms/Rm_House/Rm_House.yy",},},
