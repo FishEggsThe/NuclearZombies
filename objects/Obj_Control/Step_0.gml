@@ -1,1 +1,1 @@
-if keyboard_check_pressed(ord("J")) { room_goto(1);}
+if keyboard_check_pressed(ord("J")) { room_goto_next();}

@@ -1,3 +1,5 @@
+if !instance_exists(Obj_Camera) {instance_create_layer(x, y, "Instances", Obj_Camera);}
+
 moveSpeed = 0;
 moveSpeedInc = 1;
 moveSpeedMax = 4;
@@ -8,7 +10,7 @@ horizontalDirection = 1;
 verticalDirection = 1;
 inControl = true;
 
-loadout = [0, 0, -1];
+loadout = [0, -1, -1];
 loadoutAmmo = [0, 0, 0];
 loadoutID = 0;
 loadoutSize = 2;

@@ -74,7 +74,7 @@ function PlayerWeapon(){
 	if wepPushback > 0 { wepPushback--;}
 	if reload > 0 { reload--;}
 	
-	PickupWeapon();
+	//PickupWeapon();
 	
 	if(input_fired && reload <= 0) { fire_weapon(); }
 	else if (input_swap && loadout[1] > -1) {
@@ -84,25 +84,47 @@ function PlayerWeapon(){
 	}
 }
 
-function PickupWeapon(){
+function PlayerInteract() {
 	var nearestWeapon = instance_nearest(x, y, Obj_WeaponPickup);
+	
+	// Do the math later when you add other stuff
+	
+	if (true) {//nearestWeaponDist == minDist) {
+		PickupWeapon(nearestWeapon);
+	}
+}
+
+function PickupWeapon(near){
+	if near == noone { return;}
+	var nearestWeapon = near;
 	if collision_circle(x, y, 48, nearestWeapon, false, false) {
 		nearestWeapon.inRange = true;
 		var input_pickup = keyboard_check(ord("E"));
-		
+		var endCheck = false;
 		if input_pickup {
 			var pickupID = nearestWeapon.wepID;
 			for(var i = 0; i < loadoutSize; i++) {
-				if(pickupID == loadout[i]) {} //ammo
-				else if(loadout[i] <= -1) {
-					loadout[i] = pickupID;
-					loadoutID = i;
-					UpdateWeapon(loadout[loadoutID]);
-					instance_destroy(nearestWeapon);	
-				} else {
-					loadout[loadoutID] = pickupID;
-					UpdateWeapon(loadout[loadoutID]);
-					instance_destroy(nearestWeapon);
+				if loadout[i] == pickupID {
+					// Ammo shizz
+					endCheck = true;
+					break;
+				}
+			}
+			if !endCheck {
+				for(var i = 1; i < loadoutSize; i++) {
+					if loadout[i] <= -1 {
+						loadout[i] = pickupID;
+						loadoutID = i;
+						UpdateWeapon(loadout[loadoutID]);
+						instance_destroy(nearestWeapon);
+						endCheck = true;
+						break;
+					}
+					if !endCheck {
+						loadout[loadoutID] = pickupID;
+						UpdateWeapon(loadout[loadoutID]);
+						instance_destroy(nearestWeapon);
+					}
 				}
 			}
 		}

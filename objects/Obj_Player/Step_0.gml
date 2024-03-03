@@ -1,5 +1,6 @@
 if inControl {
 	MovePlayer();
+	PlayerInteract();
 	PlayerWeapon();
 	PlayerHurt();
 }
