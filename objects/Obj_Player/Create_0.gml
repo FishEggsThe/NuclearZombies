@@ -28,9 +28,10 @@ die = false;
 setInvFrames = 60;
 invFrames = 0;
 
-points = 500;
+points = 25000;
 
-perkList = [0];
+// 0 = Jug | 1 = Speed
+perkList = [false, false];
 
 fire_weapon = function() {
 	//function

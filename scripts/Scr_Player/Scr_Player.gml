@@ -72,7 +72,7 @@ function PlayerWeapon(){
 	
 	gunAngle = point_direction(x, y, mouse_x, mouse_y);
 	if wepPushback > 0 { wepPushback--;}
-	if reload > 0 { reload--;}
+	if reload > 0 { reload -= 1+perkList[1];}
 	
 	if input_fired { fireBuffer = fireBufferSet;}
 	if fireBuffer > 0 { fireBuffer--;}
