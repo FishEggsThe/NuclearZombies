@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "Obj_WeaponPickup",
+  "name": "Obj_PerkMachine",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
   ],
@@ -31,8 +31,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "Spr_TestShotgun",
-    "path": "sprites/Spr_TestShotgun/Spr_TestShotgun.yy",
+    "name": "Spr_PerkTemp",
+    "path": "sprites/Spr_PerkTemp/Spr_PerkTemp.yy",
   },
   "spriteMaskId": null,
   "visible": true,

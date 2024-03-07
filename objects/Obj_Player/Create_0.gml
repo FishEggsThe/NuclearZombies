@@ -28,8 +28,12 @@ die = false;
 setInvFrames = 60;
 invFrames = 0;
 
+points = 500;
+
+perkList = [0];
+
 fire_weapon = function() {
 	//function
 }
 
-UpdateWeapon(loadout[0]);
+UpdateWeapon(loadout[false]);

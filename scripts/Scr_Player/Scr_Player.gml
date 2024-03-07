@@ -88,46 +88,58 @@ function PlayerWeapon(){
 }
 
 function PlayerInteract() {
-	var nearestWeapon = instance_nearest(x, y, Obj_WeaponPickup);
+	var input_pickup = keyboard_check(ord("E"));
 	
-	// Do the math later when you add other stuff
-	
-	if (true) {//nearestWeaponDist == minDist) {
-		PickupWeapon(nearestWeapon);
-	}
+	var nearestPickup = instance_nearest(x, y, Obj_Pickup);
+	if point_distance(x, y, nearestPickup.x, nearestPickup.y) <= 24 {
+		nearestPickup.inRange = true;
+		if input_pickup {
+			with (nearestPickup) { pickupToDo();}
+		}
+	} //else { nearestPickup.inRange = false;}
 }
 
 function PickupWeapon(near){
-	if near == noone { return;}
-	var nearestWeapon = near;
-	if collision_circle(x, y, 48, nearestWeapon, false, false) {
-		nearestWeapon.inRange = true;
-		var input_pickup = keyboard_check(ord("E"));
-		var endCheck = false;
-		if input_pickup {
-			var pickupID = nearestWeapon.wepID;
-			for(var i = 0; i < loadoutSize; i++) {
-				if loadout[i] == pickupID {
-					// Ammo shizz
+	var endCheck = false;
+	if input_pickup {
+		var pickupID = near.wepID;
+		for(var i = 0; i < loadoutSize; i++) {
+			if loadout[i] == pickupID {
+				// Ammo shizz
+				endCheck = true;
+				break;
+			}
+		}
+		if !endCheck {
+			for(var i = 1; i < loadoutSize; i++) {
+				if loadout[i] <= -1 {
+					loadout[i] = pickupID;
+					loadoutID = i;
+					UpdateWeapon(loadout[loadoutID]);
+					instance_destroy(near);
 					endCheck = true;
 					break;
 				}
+				if !endCheck {
+					loadout[loadoutID] = pickupID;
+					UpdateWeapon(loadout[loadoutID]);
+					instance_destroy(near);
+				}
 			}
-			if !endCheck {
-				for(var i = 1; i < loadoutSize; i++) {
-					if loadout[i] <= -1 {
-						loadout[i] = pickupID;
-						loadoutID = i;
-						UpdateWeapon(loadout[loadoutID]);
-						instance_destroy(nearestWeapon);
-						endCheck = true;
-						break;
-					}
-					if !endCheck {
-						loadout[loadoutID] = pickupID;
-						UpdateWeapon(loadout[loadoutID]);
-						instance_destroy(nearestWeapon);
-					}
+		}
+	}
+}
+
+function GetPerk(near, pid, pcost) {
+	if collision_circle(x, y, 48, near, false, false) {
+		near.inRange = true;
+		var input_pickup = keyboard_check(ord("E"));
+			if input_pickup {
+			for(var i = 0; i < array_length(perkList); i++) {
+				if (pid == i && perkList[i] != false && points >= pcost){
+					perkList[i] = true;
+					points -= pcost;
+					return;
 				}
 			}
 		}

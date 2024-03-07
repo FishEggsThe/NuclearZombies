@@ -28,3 +28,7 @@ if instance_exists(Obj_Player) {
 		shake = clamp(shake, 0, 999999);
 	}
 }
+
+if (window_has_focus()) {
+    // try something
+} //else display_mouse_unlock(); idk

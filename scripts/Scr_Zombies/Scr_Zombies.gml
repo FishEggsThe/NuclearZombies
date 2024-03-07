@@ -35,7 +35,7 @@ function ZombieCollision() {
 			} else if (!UseSensor(x, y, x+(-sensorDist*_pixelCheck), y-sensorDist, 0.1)) {
 				ySpeed = -moveSpeed;
 			}
-		} else { ySpeed = sign(ySpeed)*moveSpeed;}
+		} else { ySpeed = sign(ySpeed)*moveSpeed;} // Why is this an error you fat shit
 		xSpeed = 0;
 	}
 	// Y Collision
