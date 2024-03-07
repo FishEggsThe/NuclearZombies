@@ -99,53 +99,6 @@ function PlayerInteract() {
 	} //else { nearestPickup.inRange = false;}
 }
 
-function PickupWeapon(near){
-	var endCheck = false;
-	if input_pickup {
-		var pickupID = near.wepID;
-		for(var i = 0; i < loadoutSize; i++) {
-			if loadout[i] == pickupID {
-				// Ammo shizz
-				endCheck = true;
-				break;
-			}
-		}
-		if !endCheck {
-			for(var i = 1; i < loadoutSize; i++) {
-				if loadout[i] <= -1 {
-					loadout[i] = pickupID;
-					loadoutID = i;
-					UpdateWeapon(loadout[loadoutID]);
-					instance_destroy(near);
-					endCheck = true;
-					break;
-				}
-				if !endCheck {
-					loadout[loadoutID] = pickupID;
-					UpdateWeapon(loadout[loadoutID]);
-					instance_destroy(near);
-				}
-			}
-		}
-	}
-}
-
-function GetPerk(near, pid, pcost) {
-	if collision_circle(x, y, 48, near, false, false) {
-		near.inRange = true;
-		var input_pickup = keyboard_check(ord("E"));
-			if input_pickup {
-			for(var i = 0; i < array_length(perkList); i++) {
-				if (pid == i && perkList[i] != false && points >= pcost){
-					perkList[i] = true;
-					points -= pcost;
-					return;
-				}
-			}
-		}
-	}
-}
-
 function DrawPlayer(){
 	var facing = sign(cos(gunAngle*pi/180)); // remove sign() part for the funny
 	var setFlash = (invFrames % 4 < 2 ? false : true);
