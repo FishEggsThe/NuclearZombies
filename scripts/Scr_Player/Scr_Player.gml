@@ -23,7 +23,7 @@ function MovePlayer(){
 }
 
 function PlayerCollision(){
-	var currTileMap = layer_tilemap_get_id("Tiles_Wall");
+	var currTileMap = [layer_tilemap_get_id("Tiles_Wall"), layer_tilemap_get_id("Tiles_Window")];
 	// X Collision
 	if place_meeting(x + xSpeed, y, currTileMap)
 	{
@@ -48,8 +48,6 @@ function PlayerCollision(){
 	
 		ySpeed = 0;
 	}
-	//hspeed = xSpeed;
-	//vspeed = ySpeed;
 }
 
 function PlayerHurt() {

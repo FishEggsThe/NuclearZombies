@@ -1,6 +1,6 @@
 {
   "$GMTileSet":"",
-  "%Name":"TileSetTest",
+  "%Name":"Tile_Floor",
   "autoTileSets":[],
   "macroPageTiles":{
     "SerialiseHeight":9,
@@ -11,7 +11,7 @@
     ],
     "TileDataFormat":1,
   },
-  "name":"TileSetTest",
+  "name":"Tile_Floor",
   "out_columns":2,
   "out_tilehborder":2,
   "out_tilevborder":2,
