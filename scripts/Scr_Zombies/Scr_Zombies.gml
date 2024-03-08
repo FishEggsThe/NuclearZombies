@@ -180,15 +180,15 @@ function DrawZombie() {
 	draw_set_colour(c_black);
 	draw_text_transformed(x, y, hp, 3, 3, 0);
 	
-	/*
-	if ds_list_size(nodePath) > 0 {
-		for(var i = 0; i < ds_list_size(nodePath)-1; i++) {
-			var nodeA = ds_list_find_value(nodePath, i);
-			var nodeB = ds_list_find_value(nodePath, i+1);
+	if global.debug {
+		if ds_list_size(nodePath) > 0 {
+			for(var i = 0; i < ds_list_size(nodePath)-1; i++) {
+				var nodeA = ds_list_find_value(nodePath, i);
+				var nodeB = ds_list_find_value(nodePath, i+1);
 			
-			draw_set_colour(c_red);
-			draw_line_width(nodeA.x, nodeA.y, nodeB.x, nodeB.y, 5);
+				draw_set_colour(c_red);
+				draw_line_width(nodeA.x, nodeA.y, nodeB.x, nodeB.y, 5);
+			}
 		}
 	}
-	*/
 }

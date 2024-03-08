@@ -14,7 +14,7 @@ function MovePlayer(){
 	} else {
 		moveSpeed -= moveSpeedInc;
 	}
-	moveSpeed = clamp(moveSpeed, 0, moveSpeedMax);
+	moveSpeed = clamp(moveSpeed, 0, moveSpeedMax+perkList[2]);
 	xSpeed = cos(moveDirection) * moveSpeed;
 	ySpeed = -sin(moveDirection) * moveSpeed;
 	PlayerCollision();

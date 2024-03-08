@@ -3,3 +3,5 @@ if instance_number(Obj_Control) > 1 { instance_destroy();}
 
 //global.currentTileMap = layer_tilemap_get_id("Tiles_Wall");
 
+global.debug = false;
+

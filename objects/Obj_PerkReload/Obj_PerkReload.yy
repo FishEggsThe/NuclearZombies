@@ -1,18 +1,20 @@
 {
   "$GMObject":"",
-  "%Name":"Obj_Node",
+  "%Name":"Obj_PerkReload",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"Obj_Node",
+  "name":"Obj_PerkReload",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
     "path":"folders/Objects.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"Obj_PerkMachine",
+    "path":"objects/Obj_PerkMachine/Obj_PerkMachine.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -31,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Spr_Node",
-    "path":"sprites/Spr_Node/Spr_Node.yy",
+    "name":"Spr_PerkTemp",
+    "path":"sprites/Spr_PerkTemp/Spr_PerkTemp.yy",
   },
   "spriteMaskId":null,
   "visible":true,

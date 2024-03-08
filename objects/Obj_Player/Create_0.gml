@@ -30,8 +30,8 @@ invFrames = 0;
 
 points = 25000;
 
-// 0 = Jug | 1 = Speed
-perkList = [false, false];
+// 0 = Jug | 1 = Reload | 2 = Speed | 3 = Explosion
+perkList = array_create(3, false);
 
 fire_weapon = function() {
 	//function
