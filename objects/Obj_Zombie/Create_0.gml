@@ -8,9 +8,13 @@ hitFlash = 0;
 hitFlashSet = 5;
 
 createNodePath = ds_list_create();
+//createNodePath = ds_map_create();
+//nodeLine = ds_list_create();
+
 nodePath = ds_list_create();
-currNode = id;
 steppedNodes = ds_list_create();
+
+currNode = id;
 nextNodeIndex = 0;
 playersLastNearestNode = noone;
 

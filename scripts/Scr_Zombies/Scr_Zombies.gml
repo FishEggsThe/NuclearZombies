@@ -159,6 +159,30 @@ function Dijkstra()
 	} until(!UseSensor(currNode.x, currNode.y, xP, yP, 0.3));
 }
 
+function DijkstraButWithDictOrMapIDK()
+{
+	ds_list_clear(steppedNodes);
+	ds_map_clear(createNodePath);
+	ds_list_clear(nodeLine);
+	
+	currNode = instance_nearest(x, y, Obj_Node);
+	var xP = Obj_Player.x;
+	var yP = Obj_Player.y;
+	//var currTileMap = layer_tilemap_get_id("Tiles_Wall");
+	
+	ds_map_add(createNodePath, currNode, noone);
+	
+	var isRunning = true;
+	
+	while(isRunning) {
+		
+		if (!UseSensor(currNode.x, currNode.y, xP, yP, 0.1)) {
+			
+		}
+	}
+	
+}
+
 function ZombieHurt() {
 	if hitFlash > 0 { hitFlash--;}
 	

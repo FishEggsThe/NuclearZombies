@@ -14,9 +14,10 @@ for(var i = 0; i < instance_number(Obj_Node); ++i;)
 	var xBuffer = cos(ang) * buffer;
 	var yBuffer = -sin(ang) * buffer;
 	var trueConnect = UseSensor(x+xBuffer, y+yBuffer, currNode.x-xBuffer, currNode.y-yBuffer, 0.3);
+	var nodeConnect = UseSensorNode(x+xBuffer, y+yBuffer, currNode.x-xBuffer, currNode.y-yBuffer, 0.4);
 	
 
-    if(currNode != self && !trueConnect) {
+    if(currNode != self && !trueConnect && !nodeConnect) {
 		ds_list_add(connections, currNode);
 		//ds_list_add(edges, point_distance(x, y, currNode.x, currNode.y));
 	}
