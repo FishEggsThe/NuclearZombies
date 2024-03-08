@@ -74,7 +74,9 @@ function Pathfinding() {
 			//y += ySpeed;
 		} else {
 			//show_debug_message("I KNOW HOW TO PATHFIND :DDDDDDD");
-			Dijkstra();
+			var playersNearestNode = instance_nearest(Obj_Player.x, Obj_Player.y, Obj_Node);
+			if playersNearestNode != playersLastNearestNode { Dijkstra();}
+			playersLastNearestNode = playersNearestNode;
 			FollowPath();
 			//ZombieCollision();
 		}

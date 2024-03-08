@@ -1,4 +1,5 @@
-nodeDebug = false;
+//depth = 100;
+if !instance_exists(Obj_Sensor) { instance_create_depth(x, y, 10, Obj_Sensor);}
 
 connections = ds_list_create();
 //edges = ds_list_create();
@@ -12,10 +13,10 @@ for(var i = 0; i < instance_number(Obj_Node); ++i;)
 	var buffer = 12;
 	var xBuffer = cos(ang) * buffer;
 	var yBuffer = -sin(ang) * buffer;
-	var trueConnect = collision_line(x+xBuffer, y+yBuffer, currNode.x-xBuffer, currNode.y-yBuffer, arr, false, false);
+	var trueConnect = UseSensor(x+xBuffer, y+yBuffer, currNode.x-xBuffer, currNode.y-yBuffer, 0.3);
 	
 
-    if(currNode != self && trueConnect == noone) {
+    if(currNode != self && !trueConnect) {
 		ds_list_add(connections, currNode);
 		//ds_list_add(edges, point_distance(x, y, currNode.x, currNode.y));
 	}

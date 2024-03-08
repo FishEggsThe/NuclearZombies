@@ -12,6 +12,7 @@ nodePath = ds_list_create();
 currNode = id;
 steppedNodes = ds_list_create();
 nextNodeIndex = 0;
+playersLastNearestNode = noone;
 
 drawColor = c_white;
 
