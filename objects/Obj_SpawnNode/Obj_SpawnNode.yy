@@ -1,13 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"Obj_ZombieSpawner",
-  "eventList":[
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"Obj_SpawnNode",
+  "eventList":[],
   "managed":true,
-  "name":"Obj_ZombieSpawner",
+  "name":"Obj_SpawnNode",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -31,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"Spr_SpawnNode",
+    "path":"sprites/Spr_SpawnNode/Spr_SpawnNode.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
