@@ -33,3 +33,15 @@ function UseSensorNode(x1, y1, x2, y2, wdth){
 	
 	return Obj_Sensor.touching;
 }
+
+function KeyboardGetKey(index) {
+	var keyText = "";
+	var key = Obj_Control.keyboardControls[index];
+	if		(key == 32) { keyText = "Space";}
+	else if	(key == 8) { keyText = "Backspace";}
+	else if	(key == 1) { keyText = "Left Mouse";}
+	else if	(key == 2) { keyText = "Right Mouse";}
+	else if	(key == 3) { keyText = "Middle Mouse";}
+	else { keyText = chr(key);}
+	return keyText;
+}

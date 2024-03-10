@@ -1,7 +1,7 @@
 if instance_number(Obj_Camera) > 1 { instance_destroy();}
 
-width = 3*640;
-height = 3*480;
+width = 640;
+height = 480;
 scale = 2;
 
 window_set_size(width*scale, height*scale);

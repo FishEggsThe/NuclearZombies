@@ -2,7 +2,7 @@ event_inherited();
 
 perkNum = 0;
 perkCost = 2500;
-pickupText = "Press 'E' to drink HP Pop (" + string(perkCost) + " points)";
+pickupText = "Press '" + interactKey + "' to drink HP Pop (" + string(perkCost) + " points)";
 
 hpIncrease = 4;
 

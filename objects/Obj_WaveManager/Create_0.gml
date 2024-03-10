@@ -1,1 +1,3 @@
+randomize();
+
 waveNumber = 0;
