@@ -1,11 +1,15 @@
 if instance_exists(Obj_Player) {
+	var player = Obj_Player;
+	
 	var guiWidth = display_get_gui_width();
 	var guiHeight = display_get_gui_height();
 
-	var crosshairX = device_mouse_x_to_gui(0);
-	var crosshairY = device_mouse_y_to_gui(0);
+	//var crosshairX = device_mouse_x_to_gui(0);
+	//var crosshairY = device_mouse_y_to_gui(0);
+	var crosshairX = scale*(player.crosshairX - camera_get_view_x(view_camera[0]));
+	var crosshairY = scale*(player.crosshairY - camera_get_view_y(view_camera[0]));
+	
 
-	var player = Obj_Player;
 	var playerHealth = player.hp/player.maxHP;
 
 	// Health

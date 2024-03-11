@@ -39,7 +39,7 @@ function UpdateWeapon(wepID){
 				wepPushback = 10;
 				reload = 11;
 				with instance_create_layer(x, y, "Instances", Obj_PlayerProjectile) {
-					direction = random_range(other.gunAngle-5, other.gunAngle+5);
+					direction = random_range(other.gunAngle-3, other.gunAngle+3);
 					speed = 10;
 				}
 			}

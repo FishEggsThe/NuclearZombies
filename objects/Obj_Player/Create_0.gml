@@ -22,6 +22,8 @@ wepPickupRange = 48;
 fireBuffer = 0;
 fireBufferSet = 10;
 auto = false;
+crosshairX = 0;
+crosshairY = 0;
 
 maxHP = 8;
 hp = maxHP;

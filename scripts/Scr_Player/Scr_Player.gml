@@ -68,7 +68,12 @@ function PlayerWeapon(){
 	var input_fired =  KeyboardInput(4, auto);
 	var input_swap =  KeyboardInput(5, false);
 	
-	gunAngle = point_direction(x, y, mouse_x, mouse_y);
+	// Stuff for aiming
+	crosshairX = mouse_x;
+	crosshairY = mouse_y;
+	// Make sure you set it up for use with controllers
+	
+	gunAngle = point_direction(x, y, crosshairX, crosshairY);
 	if wepPushback > 0 { wepPushback--;}
 	if reload > 0 { reload -= 1+perkList[1];}
 	
@@ -99,15 +104,19 @@ function PlayerInteract() {
 
 function DrawPlayer(){
 	var facing = sign(cos(gunAngle*pi/180)); // remove sign() part for the funny
+	var behind = sign(sin(gunAngle*pi/180));
 	var setFlash = (invFrames % 4 < 2 ? false : true);
+	
+	var xBack = cos(gunAngle*pi/180) * wepPushback;
+	var yBack = -sin(gunAngle*pi/180) * wepPushback;
+	draw_sprite_ext(wepSprite, image_index, x-xBack, y-yBack, 1, facing, gunAngle, c_white, 1);
 	
 	gpu_set_fog(setFlash, c_white, 0, 1000)
 	draw_sprite_ext(sprite_index, image_index, x, y, facing, image_yscale, 0, c_white, 1);
 	gpu_set_fog(false, c_white ,0 ,1000)
 	
-	var xBack = cos(gunAngle*pi/180) * wepPushback;
-	var yBack = -sin(gunAngle*pi/180) * wepPushback;
-	draw_sprite_ext(wepSprite, image_index, x-xBack, y-yBack, 1, facing, gunAngle, c_white, 1);
+	if behind != 1
+		draw_sprite_ext(wepSprite, image_index, x-xBack, y-yBack, 1, facing, gunAngle, c_white, 1);
 }
 
 function KeyboardInput(index, checkOrPressed){
