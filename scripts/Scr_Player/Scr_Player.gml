@@ -1,8 +1,8 @@
 function MovePlayer(){
-	var input_up = KeyboardInput(0);
-	var input_left = KeyboardInput(1);
-	var input_down = KeyboardInput(2);
-	var input_right = KeyboardInput(3);
+	var input_up = KeyboardInput(0, true);
+	var input_left = KeyboardInput(1, true);
+	var input_down = KeyboardInput(2, true);
+	var input_right = KeyboardInput(3, true);
 
 	horizontalDirection = input_right - input_left;
 	verticalDirection = input_down - input_up;
@@ -65,8 +65,8 @@ function PlayerHurt() {
 }
 
 function PlayerWeapon(){
-	var input_fired =  KeyboardInput(4);
-	var input_swap =  KeyboardInput(5);
+	var input_fired =  KeyboardInput(4, auto);
+	var input_swap =  KeyboardInput(5, false);
 	
 	gunAngle = point_direction(x, y, mouse_x, mouse_y);
 	if wepPushback > 0 { wepPushback--;}
@@ -86,7 +86,7 @@ function PlayerWeapon(){
 }
 
 function PlayerInteract() {
-	var input_pickup = KeyboardInput(6);
+	var input_pickup = KeyboardInput(6, false);
 	
 	var nearestPickup = instance_nearest(x, y, Obj_Pickup);
 	if point_distance(x, y, nearestPickup.x, nearestPickup.y) <= 24 {
@@ -110,10 +110,18 @@ function DrawPlayer(){
 	draw_sprite_ext(wepSprite, image_index, x-xBack, y-yBack, 1, facing, gunAngle, c_white, 1);
 }
 
-function KeyboardInput(index){
+function KeyboardInput(index, checkOrPressed){
 	if Obj_Control.keyboardType[index] {
-		return keyboard_check(Obj_Control.keyboardControls[index]);
+		if checkOrPressed {
+			return keyboard_check(Obj_Control.keyboardControls[index]);
+		} else {
+			return keyboard_check_pressed(Obj_Control.keyboardControls[index]);
+		}
 	} else {
-		return mouse_check_button_pressed(Obj_Control.keyboardControls[index]);
+		if checkOrPressed {
+			return mouse_check_button(Obj_Control.keyboardControls[index]);
+		} else {
+			return mouse_check_button_pressed(Obj_Control.keyboardControls[index]);
+		}
 	}
 }

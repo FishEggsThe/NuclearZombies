@@ -1,3 +1,5 @@
+if !instance_exists(Obj_WaveManager) { instance_create_layer(0, 0, "Instances", Obj_WaveManager);}
+
 zombiesToSpawnSet = 5;
 zombiesToSpawn = zombiesToSpawnSet;
 

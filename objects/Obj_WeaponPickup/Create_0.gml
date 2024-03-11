@@ -1,7 +1,7 @@
 event_inherited();
 
-wepID = 1;//irandom_range(0, 1);
-image_index = GetWeaponSprite(wepID);
+wepID = 2;//irandom(2);
+sprite_index = GetWeaponSprite(wepID);
 pickupText = "Press '" + string(interactKey) + "' to pickup weapon";
 //xShadow = 15;
 //yShadow = 5;

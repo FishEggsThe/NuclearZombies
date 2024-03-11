@@ -21,6 +21,7 @@ reload = 0;
 wepPickupRange = 48;
 fireBuffer = 0;
 fireBufferSet = 10;
+auto = false;
 
 maxHP = 8;
 hp = maxHP;
@@ -37,4 +38,4 @@ fire_weapon = function() {
 	//function
 }
 
-UpdateWeapon(loadout[false]);
+UpdateWeapon(loadout[0]);
