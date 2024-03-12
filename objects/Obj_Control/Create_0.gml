@@ -5,7 +5,7 @@ if instance_number(Obj_Control) > 1 { instance_destroy();}
 
 global.debug = false;
 
-controlLabels = ["Up", "Left", "Down", "Right", "Fire", "Swap", "Interact"]; //7
+controlLabels = ["up", "left", "down", "right", "fire", "swap", "interact"]; //7
 // Add 7 to the index for gamepad light ups
 controlLightUp = array_create(array_length(controlLabels)*2, false);
 
@@ -15,4 +15,4 @@ keyboardControls = [87, 65, 83, 68, 1, 32, 69];
 keyboardType = [true, true, true, true, false, true, true];
 currentI = -1;
 
-gamepadControls = [gp_face1, gp_shoulderl, gp_shoulderlb, gp_start, gp_padu, gp_axislh, gp_axisrh];
+gamepadControls = [gp_padu, gp_padl, gp_padd, gp_padr, gp_padu, gp_axislh, gp_axisrh];

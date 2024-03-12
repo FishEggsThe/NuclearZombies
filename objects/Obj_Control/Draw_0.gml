@@ -22,7 +22,7 @@ for(var i = 0; i < array_length(controlLabels); i++) {
 	else { controlLightUp[i+7] = false;}
 	
 	if controlLightUp[i+7] { draw_set_color(c_red);} 
-	else { draw_set_color(c_white);}
+	//else { draw_set_color(c_white);}
 	
 	if		(false) {drawText = "how the fuck did it get here";}
 	else { drawText = string(gamepadControls[i]);}

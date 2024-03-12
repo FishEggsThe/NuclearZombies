@@ -120,17 +120,24 @@ function DrawPlayer(){
 }
 
 function KeyboardInput(index, checkOrPressed){
+	var input = Obj_Control.controlLabels[index]
+	if checkOrPressed { return input_check(input);}
+	else if !checkOrPressed { return input_check_pressed(input);}
+	/*
+	var controls = Obj_Control.keyboardControls;
 	if Obj_Control.keyboardType[index] {
 		if checkOrPressed {
-			return keyboard_check(Obj_Control.keyboardControls[index]);
+			return keyboard_check(controls[index]);
 		} else {
-			return keyboard_check_pressed(Obj_Control.keyboardControls[index]);
+			return keyboard_check_pressed(controls[index]);
 		}
 	} else {
 		if checkOrPressed {
-			return mouse_check_button(Obj_Control.keyboardControls[index]);
+			return mouse_check_button(controls[index]);
 		} else {
-			return mouse_check_button_pressed(Obj_Control.keyboardControls[index]);
+			return mouse_check_button_pressed(controls[index]);
 		}
 	}
+	*/
 }
+
