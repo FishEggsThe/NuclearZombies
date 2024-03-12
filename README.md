@@ -8,4 +8,5 @@ Zombie pathfinding is at a point where I'm satisfied with it, but morework will 
 
 ## Credits
 My friends for helping out with the concepting and encouraging me to actually make the game<br>
+Input by Juju Adams, Alynne Keith, and Friends very helpful package
 Me for actually taking the initiative to make the game even if I never finish it.
