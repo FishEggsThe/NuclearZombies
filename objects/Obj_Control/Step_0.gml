@@ -3,6 +3,7 @@ if keyboard_check_pressed(ord("P")) { global.debug = !global.debug;}
 
 if(room == Rm_Menu)
 {
+	// I KNOW THIS IS ALL VERY BARBARIC BUT THIS WORKS OKAY
 	if currentI > -1 {
 		if (keyboard_check_pressed(vk_anykey) || mouse_check_button_pressed(mb_any)) {
 			if keyboard_check_pressed(vk_anykey) {
@@ -12,6 +13,7 @@ if(room == Rm_Menu)
 				}
 				
 				if !keyExists {
+					input_binding_set(controlLabels[currentI], input_binding_key(keyboard_key));
 					keyboardControls[currentI] = keyboard_key;
 					keyboardType[currentI] = true;
 				}
@@ -24,6 +26,7 @@ if(room == Rm_Menu)
 				}
 				
 				if !keyExists {
+					input_binding_set(controlLabels[currentI], input_binding_mouse_button(mouse_button));
 					keyboardControls[currentI] = mouse_button;
 					keyboardType[currentI] = false;
 				}
