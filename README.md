@@ -4,9 +4,8 @@ Nuclear Zombies is a Gamemaker game developed by Fish_Eggs. The game was inspire
 
 ## Current Progress
 
-Zombie pathfinding is at a point where I'm satisfied with it, but morework will need to be done to really polish it up, I'm also gonna start working up a map that'll function like an actual level you can play with perk machines and zombie spawns. I have no level design knowledge so I don't have much hope for it so idk. So yeah the plan now is to add new weapons, some perks, zombie spawns and point system with blockades to open like cod zombs. Might try to figure out how to make the weapon system better and less like Wasteland Kings game jam.
+Currently in kind of a rut with this game, realized that I have no idea how the game is going to play out which is kinda making me really unmotivated to work on this. Maybe making a Zombies mod for Nuclear Throne would've been a better idea to start with since most of the structure was already there. Wish I was good at concepting.
 
 ## Credits
 My friends for helping out with the concepting and encouraging me to actually make the game<br>
-Input by Juju Adams, Alynne Keith, and Friends very helpful package
 Me for actually taking the initiative to make the game even if I never finish it.
